@@ -52,10 +52,11 @@ def usulay_page(driver,all_rest, is_list):
         all_rest[is_list[0]][name] = value
 
 def restoraut_net(driver, all_rest, is_list):
-    level_one =driver.find_element_by_xpath('//div[@class="item active"]')
-    level_two = driver.find_elements_by_xpath('//div[@class="contact props"]')
-    params = base.find_elements_by_xpath('./div[@class="prop"]')
-    all_rest[is_list[0]] = {}
+    # level_one =driver.find_element_by_xpath('//div[@class="item active"]')
+    # level_two = driver.find_elements_by_xpath('//div[@class="contact props"]')
+    # params = base.find_elements_by_xpath('./div[@class="prop"]')
+    # all_rest[is_list[0]] = {}
+    pass
 
 
 
@@ -78,5 +79,5 @@ def get_all_param(driver):
 
 if __name__ == '__main__':
     driver = init_drivers()[0]
-    #get_all_href(driver)
-    get_all_param(driver)
+    get_all_href(driver)
+    #get_all_param(driver)
