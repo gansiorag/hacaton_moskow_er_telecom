@@ -1,0 +1,49 @@
+header {
+    background: #005999;
+    height: 68px;
+    position: relative;
+}
+
+header .brand img.logo {
+    width: 147px;
+    height: 43px;
+    margin-top: 14px;
+    margin-left: 18px;
+}
+
+.h-divider {
+ margin-top:5px;
+ margin-bottom:5px;
+ height:2px;
+ width:100%;
+ border-top:1px solid gray;
+}
+
+.row.equal-cols {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    }
+
+    .row.equal-cols:before,
+    .row.equal-cols:after {
+    display: block;
+    }
+
+    .row.equal-cols > [class*='col-'] {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    }
+
+    .row.equal-cols > [class*='col-'] > * {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    }

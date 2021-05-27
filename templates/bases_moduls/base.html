@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/rosseti.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+
+<!--     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    {% block head%}{% end%}
+    <title>{{ title }}</title>
+
+
+</head>
+<body>
+    <style type="text/css">
+    .h-divider {
+     margin-top:5px;
+     margin-bottom:5px;
+     height:2px;
+     width:100%;
+     border-top:1px solid gray;
+    }
+    
+    </style>
+
+    <div class="container-fluid">
+        <!-- base block -->
+        {% block top_label%}
+        <header class="header header-default">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="pull-left brand float-remove-xs text-center-xl">
+                            <img src="/static/images/logo-rosseti-cyfra-white.png" alt="rosseti" title="rosseti" class="logo">
+                        </div>
+                    </div>
+                    <div class="col-md-2 ">
+                    </div>
+                    <div class="col-md-7 ">
+                        <h3 class="title text-center-xl" style="color: white">Система ETL и анализа данных </h3>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        {% end%}
+
+        {% block top_menu%}
+        <!-- Горизонтальное Меню  -->
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <!-- Верхнее меню (пункты меню)  -->
+                    <ul class="nav navbar-nav">
+                        <li><a href="/vision/">Визуализация данных</a></li>
+                        <!--<li><a href="/nott/">Обработка данных</a></li> -->
+                        <li><a href="http://localhost:3000" target="_blank">Визуализация на Grafana</a></li>
+                        <li><a href="/nott/">Получение данных</a></li>
+                        <li><a href="/nott/">Поддержка</a></li>
+                        <li><a href="/nott/">Контакты</a></li>
+                        <li><a href="/spravoch/">Справочник</a></li>
+                        <li><a href="/admin/"><b>Админка</b></a></li>
+                    </ul>
+                    <!-- Конец Ссылки  -->
+                    <!-- Форма Поиска  -->
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Поиск ...">
+                        </div>
+                        <button type="submit" class="btn btn-default">Искать</button>
+                    </form>
+                    <!-- Конец Форма Поиск  -->
+                </div>
+            </div>
+        </nav>
+        <!-- Конец Меню  -->
+        {% end%}
+
+        <div class="container-fluid">
+            <div class="row">
+            <!-- bloc left menu -->
+
+                    <div class="col-md-2"  style="border:1px solid #000000; height: 1500px;">
+
+                        <p></p>
+                        <br>
+                    {% block lef_menu_block_one%}
+                        <a href="/">Географические ограничения</a><br>
+                        <a href="/">Временные ограничения</a>
+                    {% end%}
+                        <br>
+
+                        <div class="h-divider">
+                        </div>
+                        <br>
+                    {% block lef_menu_block_two%}
+                        <div class="dropdown" style="color: #005999;">
+                            <h5 class="dropdown-toggle" data-toggle="dropdown">Сервисы <b class="caret"></b>
+                            </h5>
+                            <ul class="dropdown-menu">
+                            <li><a href="/coord/">Получение координат по адресу</a></li>
+                            <li><a href="/optimisetion_potr/">Оптимизация потребления</a></li>
+                            <li><a href="/mapss/">Карты</a></li>
+                            <li><a href="/hist/">Гистограммы по региону</a></li>
+
+                        </ul>
+                        </div>
+                        <div class="dropdown" style="color: #005999;">
+                        <h5 class="dropdown-toggle" data-toggle="dropdown">Подстанции <b class="caret"></b>
+                        </h5>
+                        <ul class="dropdown-menu">
+                        <li><a href="/nott/">Все ПС</a></li>
+                        <li><a href="/nott/">ПС 110 кВ</a></li>
+                        <li><a href="/nott/">ПС 330 кВ</a></li>
+                        <li><a href="/nott/">ТП 0,4 кВ</a></li>
+                        </ul>
+                        </div>
+
+                        <div class="dropdown" style="color: #005999;">
+                            <h5 class="dropdown-toggle" data-toggle="dropdown">Линии <b class="caret"></b>
+                            </h5>
+                            <ul class="dropdown-menu">
+                            <li><a href="/nott/">От подстанции к подстанции</a></li>
+                            <li><a href="/nott/">От подстанции к абонентам</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown" style="color: #005999;">
+                            <h5 class="dropdown-toggle" data-toggle="dropdown">Счетчики <b class="caret"></b>
+                            </h5>
+                            <ul class="dropdown-menu">
+                            <li><a href="/nott/">Счетчики физических лиц</a></li>
+                            <li><a href="/nott/">Счетчики юридических лиц</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dropdown" style="color: #005999;">
+                            <h5 class="dropdown-toggle" data-toggle="dropdown">Абоненты <b class="caret"></b>
+                            </h5>
+                            <ul class="dropdown-menu">
+                                <li><a href="/nott/">Все</a></li>
+                                <li><a href="/nott/">Юридические лица</a></li>
+                                <li><a href="/nott/">Физические лица</a></li>
+                            </ul>
+                        </div>
+                        {% end%}
+                        {% block lef_menu_block_three%}
+                        {% end%}
+                    </div>
+
+                <div class="col-md-10">
+                    <div class="container-fluid">
+                    {% block work_area%}
+                        work_area
+                    {% end%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!--  <div class="container-fluid"  style="height:20%;">
+            <div class="panel panel-default">
+                <div class="panel-heading">Ответсвенные :</div>
+            </div>
+            <div class="col-md-2">
+                    <div class="container">
+                        Лицо 1
+                    </div>
+            </div>
+            <div class="col-md-2">
+                <div class="container">
+                Лицо 1
+                </div>
+            </div>
+        </div>-->
+
+
+</body>
+</html>
