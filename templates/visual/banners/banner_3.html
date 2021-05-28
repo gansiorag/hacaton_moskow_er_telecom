@@ -1,0 +1,32 @@
+  <div class="panel-body">
+  	 <h6 class="panel-title"><b>Абоненты:</b></h6>
+  	<h7>
+		{% if client_ur_face + client_fiz_face + unsolved_client_ur_face + unsolved_client_fiz_face == 0 %} 
+		Отсутствуют данные о клиентах <br>
+		{% else %}
+		<text style="float: left;"><b>Всего клиентов:</b></text> <text style="float: right;"> {{client_ur_face + client_fiz_face + unsolved_client_ur_face + unsolved_client_fiz_face}} </text> <br>
+		{% if client_ur_face != 0 %}
+		<text style="float: left;">Юридицеские лица:</text> <text style="float: right;"> {{client_ur_face}}</text> <br>
+		{% else %}
+		<text style="float: left;">Юридицеские лица:</text> <text style="float: right;"> Данные отсутствуют</text> <br>
+		{% end %}
+		{% if accounting_point_fiz_face != 0 %}
+		<text style="float: left;">Физические лица:</text> <text style="float: right;"> {{client_fiz_face}}</text> <br>
+		{% else %}
+		<text style="float: left;">Физические лица:</text> <text style="float: right;"> Данные отсутствуют</text> <br>
+		{% end %}
+		{% if client_have_more_one_accounting_point != 0 %}
+		<text style="float: left;">Лица, имеющие более </text> <br>
+		<text style="float: left;">одного счётчика:</text> <text style="float: right;"> {{client_have_more_one_accounting_point}}</text> <br>
+		{% end %}
+		{%if unsolved_client_ur_face != 0 %}
+		<text style="float: left;">Неприписанные </text> <br>
+		<text style="float: left;">юридические лица:</text> <text style="float: right;"> {{unsolved_client_ur_face}}</text> <br>
+		{% end %}
+		{%if unsolved_client_fiz_face != 0 %}
+		<text style="float: left;">Неприписанные </text> <br>
+		<text style="float: left;">физические лица:</text> <text style="float: right;"> {{unsolved_client_fiz_face}}</text> <br>
+		{% end %}
+		{% end %}
+	</h7>
+ </div>

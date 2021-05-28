@@ -1,0 +1,47 @@
+<div class="panel-body">
+	<h6 class="panel-title"><b>Счётчики:</b></h6>
+	<h7>
+		{% if accounting_point_ur_face + accounting_point_fiz_face + unsolved_face + unsolved_ur_face + unsoved_fiz_face + unsolved_and_unassigned_point == 0 %} 
+		Отсутствуют данные о счётчиках <br>
+		{% else %}
+		<text style="float: left;"><b>Всего счётчиков:</b> </text> 
+		<text style="float: right;"> {{accounting_point_ur_face + accounting_point_fiz_face + unsolved_face + unsolved_ur_face + unsoved_fiz_face + unsolved_and_unassigned_point}} </text> <br>
+		{% if accounting_point_ur_face != 0 %}
+		<text style="float: left;">Счётчики</text> <br>
+		<text style="float: left;">юридических лиц:</text> <text style="float: right;"> {{accounting_point_ur_face}}</text> <br>
+		{% else %}
+		<text style="float: left;">Счётчики</text> <br>
+		<text style="float: left;">юридических лиц:</text> 
+		<text style="float: right;"> Данные отсутствуют</text> <br>
+		{% end %}
+		{% if accounting_point_fiz_face != 0 %}
+		<text style="float: left;">Счётчики</text> <br>
+		<text style="float: left;">физичиских лиц:</text> 
+		<text style="float: right;"> {{accounting_point_fiz_face}}</text> 
+		<br>
+		{% else %}
+		<text style="float: left;">Счётчики</text> <br>
+		<text style="float: left;">физичиских лиц:</text> <text style="float: right;"> Данные отсутствуют</text> <br>
+		{% end %}
+		{% if unsolved_face != 0 %}
+		<text style="float: left;">Счётчики</text> <br>
+		<text style="float: left;">неопределённых лиц:</text> 
+		<text style="float: right;"> {{unsolved_face}}</text> 
+		{% end %}
+		{% if unsolved_ur_face != 0 %}
+		<text style="float: left;">Неприписанные счётчики</text> <br>
+		<text style="float: left;">юридических лиц:</text> 
+		<text style="float: right;"> {{unsolved_ur_face}}</text> 
+		{% end %}
+		{% if unsoved_fiz_face != 0 %}
+		<text style="float: left;">Неприписанные счётчики</text> <br>
+		<text style="float: left;">физических лиц:</text> 
+		<text style="float: right;"> {{unsoved_fiz_face}}</text> 
+		{% end %}
+		{% if unsolved_and_unassigned_point != 0 %}
+		<text style="float: left;">Неопределённые счётчики</text>
+		<text style="float: right;"> {{unsoved_fiz_face}}</text> 
+		{% end %}
+	{% end %}
+</h7>
+</div>

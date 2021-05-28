@@ -1,0 +1,16 @@
+{% extends "../bases_moduls/base.html" %}
+{% block head%}
+      <link href="/static/css/first_style.css" type="text/css" rel="stylesheet"/>
+{% end%}
+{% block lef_menu_block_three%}
+    <br>
+    <div class="h-divider">
+    </div>
+    <br>
+    <h5 style="color: #005999;"><b>Визуализация данных Grafana</b></h5>
+    <br>
+{% end%}
+
+{% block work_area %}
+    <div> <iframe id='myIFrame' src='http://localhost:8069'></iframe> </div>
+{% end %}

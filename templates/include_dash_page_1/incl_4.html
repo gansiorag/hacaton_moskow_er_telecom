@@ -1,0 +1,35 @@
+ <div id="grafity_4">
+         <script type="text/javascript">
+           google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      var dataisjs = [];
+      {% for dd in datais %}
+        dataisjs.push('{{dd}}')
+      {% end %}
+      function drawChart() {
+
+        var Uf1 = {{U_f1}};
+        var Uf2 = {{U_f2}};
+        var Uf3 = {{U_f3}};
+        var data_mass =[]
+        data_mass.push(['Дата', 'U фаза 1', 'U фаза 2', 'U фаза 3'])
+        {% set i=0 %}
+        {% for itok in I_f1 %}
+            data_mass.push([dataisjs[{{i}}],{{U_f1[i]}},{{U_f2[i]}},{{U_f3[i]}}])
+            {{i}}
+            {% set i = i +1 %}
+         {% end%}
+        var data = google.visualization.arrayToDataTable(data_mass);
+
+        var options = {
+          title: '{{name4}}, по датам',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('grafity_4'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </div>

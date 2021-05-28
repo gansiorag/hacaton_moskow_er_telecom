@@ -1,0 +1,208 @@
+{% extends "bases_moduls/base.html" %} {% block work_area%}
+
+<!-- Заголовок ---->
+<div>
+    <h2 class="text-center"> Географические ограничения </h2> <br></div>
+
+<!-- Вбор подразделения ---->
+<div class="row">
+    <div class="col-md-2">
+        <b>Выберите подразделение</b>
+    </div>
+    {% include 'moduls_index/include_two.html' %}
+    {% include 'moduls_index/include_one.html' %}
+</div>
+
+<div>
+    <p></p><br></div>
+
+<!-- Географический объект ---->
+<div class="row">
+    <div class="col-md-2">
+        <b>Выберите</b>
+    </div>
+    <div class="col-md-2">
+        <div style="width: 80%">
+            Округ
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div style="width: 80%">
+            Область
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div style="width: 80%">
+            Район
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div style="width: 80%">
+            Населенный пункт
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        <b>географический объект</b>
+    </div>
+    {% for client in range(4)%}
+    <div class="col-md-2">
+        <div>
+            <form action="/" method="post" name="form_client">
+                <p><select name="client">
+              <option value="0">Выбрать все</option>
+                 {% for client2 in range(4)%}
+                    <option value={{client2}}>{{client2}}</option>
+                 {% end%}
+             </select></p>
+            </form>
+        </div>
+    </div>
+    {% end%}
+</div>
+<div>
+    <p></p><br></div>
+
+<!-- Выбор по локации ---->
+<div class="row">
+    <div class="col-md-2">
+        <b>Выбор по локации</b>
+    </div>
+    <div class="col-md-2">
+        Широта
+    </div>
+    <div class="col-md-2">
+        Долгота
+    </div>
+    <div class="col-md-2">
+        Радиус, м
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-2">
+        --
+    </div>
+    {% for client in range(3)%}
+    <div class="col-md-2">
+        <div>
+            <form action="/" method="post" name="form_client">
+                <p> <input type="text" style="width:100%" name="ask_coord" value="{{ message_task }}"></p>
+            </form>
+        </div>
+    </div>
+    {% end%}
+</div>
+<div>
+    <p></p><br></div>
+
+<!-- Выбор по адресу ---->
+<div class="row">
+    <div class="col-md-2">
+        <b>Выбор по адресу</b>
+    </div>
+    <div class="col-md-4">
+        Адрес
+    </div>
+    <div class="col-md-2">
+        Радиус,м
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        --
+    </div>
+    <div class="col-md-4">
+        <div style="width: 80%">
+            <form action="/" method="post" name="form_client">
+                <p> <input type="text" style="width:100%" name="ask_coord" value="{{ message_task }}"></p>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div style="width: 100%">
+            <form action="/" method="post" name="form_client">
+                <p> <input type="text" style="width:100%" name="ask_coord" value="{{ message_task }}"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        --
+    </div>
+    {% for client in range(3)%}
+    <div class="col-md-2">
+        <div>
+            <form action="/" method="post" name="form_client">
+                <p> <input type="text" style="width:100%" name="ask_coord" value="{{ message_task }}"></p>
+            </form>
+        </div>
+    </div>
+    {% end%}
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p id="mes_one"  style="color: red; font-size:200%;"> {{message}}</p>
+    </div>
+    <<div class="col-md-2">
+          <form id="form_glob" method="post" action="/stay_limitid/">
+               <p><input id="stay_limitid" name="stay_limitid" type="hidden"></p>
+               <p><input type="submit" id="btn" class="btn btn-primary btn-lg" 
+                style="background: #005999;" value="Установить ограничения"></p>
+                <!-- value="Установить ограничения" OnClick="add_last_volue();"></p> -->
+          </form>
+    </div>
+</div>
+<br>
+<div>
+    <h3 class="text-center"> Данные будут получены из баз: </h3> <br></div>
+<div class="h-divider">
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <b>База АССО ТП</b>
+        <p class="text-danger"> Нет подключения !</p>
+    </div>
+
+    <div class="col-md-2">
+        <b>База "Пирамида API"</b>
+        <p class="text-danger"> Нет подключения !</p>
+    </div>
+    
+    <div class="col-md-2">
+        <b>База "Пирамида"</b>
+        <p class="text-danger"> Нет подключения !</p>
+    </div>
+    <div class="col-md-2">
+        <b>База ГИС система</b>
+        <p class="text-danger"> Нет подключения !</p>
+    </div>
+    <div class="col-md-2">
+        <b>База АСКУЭ</b>
+        <p class="text-danger"> Нет подключения !</p>
+    </div>
+    <div class="col-md-2">
+        <b>База АСТУ(SCADA)</b>
+        <p class="text-danger"> Нет подключения !</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <b>База АСУ ПСД</b>
+        <p class="text-danger"> Нет подключения !</p>
+    </div>
+    <div class="col-md-2">
+        <b>База АСУ ТОРО(СУПА)</b>
+        <p class="text-danger"> Нет подключения !</p>
+    </div>
+    <div class="col-md-2">
+        <b>База системы АСУ ТП объектов</b>
+        <p class="text-danger"> Нет подключения !</p>
+    </div>
+</div>
+
+{% end%}
