@@ -1,4 +1,5 @@
 import pprint
+import json
 
 from drivers.init_drevers import init_drivers
 import time
@@ -22,7 +23,8 @@ def get_all_href(driver):
        except Exception:
            my_key = False
 
-def usulay_page(driver,all_rest, is_list):
+def usulay_page(driver, is_list):
+    all_rest = {}
     driver.find_element_by_xpath('//div[@class="read-more all-props-trigger-wrap"]').click()
     base = driver.find_element_by_xpath('//div[@id="props"]')
     params = base.find_elements_by_xpath('./div[@class="prop"]')
@@ -30,7 +32,7 @@ def usulay_page(driver,all_rest, is_list):
 
     for div in params:
         name = div.find_element_by_xpath('./div[@class="name"]').text
-        print(name)
+        #print(name)
         if 'Телефон' not in name:  # or (name not in 'Телефон:'):
             if name == 'Адрес:':
                 value = div.find_element_by_xpath('./div[@class="value address-wrap"]').text
@@ -47,33 +49,56 @@ def usulay_page(driver,all_rest, is_list):
     params = base2.find_elements_by_xpath('./div[@class="prop"]')
     for div in params:
         name = div.find_element_by_xpath('./div[@class="name"]').text.replace('\n', ' ')
-        print(name)
+        #print(name)
         value = div.find_element_by_xpath('./div[@class="value"]').text
         all_rest[is_list[0]][name] = value
+    return all_rest
 
-def restoraut_net(driver, all_rest, is_list):
-    level_one =driver.find_element_by_xpath('//div[@class="item active"]')
-    level_two = driver.find_elements_by_xpath('//div[@class="contact props"]')
-    params = base.find_elements_by_xpath('./div[@class="prop"]')
-    all_rest[is_list[0]] = {}
-
+def restoraut_net(driver, is_list):
+    all_resttt = []
+    level_one =driver.find_elements_by_xpath('//div[@class="item active"]/div[@class="contact props"]')
+    text_level = 0
+    for base in level_one:
+        one_rest = {}
+        text_level +=1
+        params = base.find_elements_by_xpath('./div[@class="prop"]')
+        one_rest [is_list[0]]={}
+        metro = base.find_element_by_xpath('./div[@class="prop wsubway"]')
+        one_rest[is_list[0]][metro.find_element_by_xpath('./div[@class="name"]').text] = \
+                            metro.find_element_by_xpath('./div[@class="value"]').text
+        for itt in params:
+            one_rest[is_list[0]][itt.find_element_by_xpath('./div[@class="name"]').text] = \
+                itt.find_element_by_xpath('./div[@class="value"]').text
+            #print(itt.find_element_by_xpath('./div[@class="name"]').text,
+            #      itt.find_element_by_xpath('./div[@class="value"]').text, sep=' -->> ' )
+        #print('-----------------')
+        all_resttt.append(one_rest)
+    return all_resttt
 
 
 def get_all_param(driver):
-    all_rest ={}
+    all_rest =[]
     k=0
+
     with open('href_restoraunts_1.csv', 'r') as is_f:
         for line in is_f:
             k +=1
             print(k)
-            if k>742:
-                is_list = line.strip().split(';')
-                driver.get(is_list[1])
-                try:
-                    usulay_page(driver, all_rest, is_list)
-                except Exception:
-                    restoraut_net(driver, all_rest, is_list)
-                pprint.pprint(all_rest)
+            is_list = line.strip().split(';')
+            driver.get(is_list[1])
+            try:
+                ittem = usulay_page(driver, is_list)
+                all_rest.append(ittem)
+            except Exception:
+                ittem = restoraut_net(driver, is_list)
+                all_rest += ittem
+            #pprint.pprint(all_rest)
+
+    with open('all_rest.csv', 'a') as rez_f:
+        for itt in all_rest:
+            rez_f.write(json.dumps(itt, ensure_ascii=False)+'\n')
+
+
 
 
 if __name__ == '__main__':
