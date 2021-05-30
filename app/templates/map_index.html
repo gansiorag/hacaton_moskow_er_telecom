@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  {% include 'com_head.html' %}
+    <body>
+        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr style="width: 100%; height: 50px;"></tr>
+            <tr>
+                <td style="width: 30%;">
+                        <div style="p'adding-left:10%">
+                            <p>Показ объектов с большим количеством подключений</p>
+
+                        </div>
+
+                  </td>
+                <td style="width: 50%;">
+                    <div id="map" style="width: 100%; height: 600px;"></div>
+                           <script type="text/javascript">
+                                let lcc={{lcc}};
+                                let pcc={{pcc}};
+                                let zz={{zoom}};
+                                let level={{level}};
+
+                                DG.then(function() {
+                                   var map;
+                                   var myIcon_red = DG.icon({
+                                                    iconUrl: "../static/red_icon.png",
+                                                    iconSize: [30, 40],
+                                                    iconAnchor: [0, 30],
+                                                });
+
+                                    //var myIcon_blue = DG.icon({
+                                    //                iconUrl: "../static/blue_icon.png",
+                                    //                iconSize: [40, 40],
+                                    //                iconAnchor: [-20, 30],
+                                    //            });
+
+
+                                    map =DG.map('map', {
+                                        center: [lcc,pcc],
+                                        zoom: zz
+                                    });
+
+                                    var bounds = [[55.7744,37.580],
+                                                  [55.7294,37.66]]
+
+                                    DG.rectangle(bounds, {color: "#ff7800", weight: 5}).addTo(map);
+                                    map.fitBounds(bounds);
+
+                                    //myDivIcon = DG.divIcon({
+                                    //    iconSize: [70, 20],
+                                   //     html: '<b style="color:blue;">Объект с 15 подключениями</b>'
+                                    //});
+
+                                    DG.marker([lcc,pcc],{icon: myIcon_red}).addTo(map).bindPopup('Вы кликнули по мне!');
+                                });
+                            </script>
+
+                </td>
+                <td style="width: 20%;">
+                </td>
+            </tr>
+        </table>
+ {% include 'pereadresacion.html' %}
+    </body>
+</html>
