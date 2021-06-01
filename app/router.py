@@ -27,7 +27,11 @@ def map():
     #     koef_lend = leng_side / 100.0
     #     print(kol_sqrt)
 
-    return render_template('/map_index.html',lcc = lcc, pcc = pcc, zoom = zoom, level = level,
+    return render_template('/map_index.html',
+                            lcc = lcc,
+                            pcc = pcc,
+                            zoom = zoom,
+                            level = level,
                             start_width = start_width,
                             start_long = start_long,
                             end_width = end_width,
