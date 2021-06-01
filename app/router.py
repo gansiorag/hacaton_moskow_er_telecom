@@ -18,7 +18,7 @@ def map():
     start_long = 37.580
     end_width = 55.7294
     end_long = 37.652
-    leng_side = 1000
+    leng_side = 300
     kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point = [55.7744, 37.580],
                                                                                     low_point = [55.7294, 37.652],
                                                                                     leng_side = leng_side)

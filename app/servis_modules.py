@@ -40,11 +40,21 @@ class Work_with_One_pix():
     def __init__(self, dict_arry_One_pix:dict):
         pass
 
+def get_array_objects(hi_point = [55.7744, 37.580],  low_point = [55.7294, 37.652], name_files='lll.csv'):
+    with open(name_files, 'r') as is_f:
+        pass
+
 
 
 if __name__ == '__main__':
     proga()
-    kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere()
+    hi_point = [55.7744, 37.580]
+    low_point = [55.7294, 37.652]
+    leng_side = 100
+    array_objects = get_array_objects(hi_point, low_point,
+                                      '/home/al/PycharmProjects/hacaton_moskow_er_telecom/data_set/theatres.csv')
+    kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = \
+        get_array_borders_squere(hi_point = hi_point,  low_point = low_point, leng_side = leng_side)
     # for pix in array_sqrt:
     #     dd = {''}
     #     new_pix = One_pix({'coord_sqrt':pix})
