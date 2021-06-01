@@ -5,27 +5,23 @@ Author Gansior A. mail - gansior@gansior.ru tel - +79173383804
 """
 from app import app
 from flask import render_template
+from app.servis_modules import get_array_borders_squere
+
 
 @app.route("/mapss")
 def map():
     pcc = 37.620000
     lcc = 55.752900
-    zoom = 13
+    zoom = 12
     level = 100
     start_width = 55.7744
     start_long = 37.580
     end_width = 55.7294
-    end_long = 37.66
-    leng_side = 100
-
-    # def get_array_borders_squere(hi_point=[55.7744, 37.580], low_point=[55.7294, 37.66], leng_side=100):
-    #     width = abs(hi_point[0] - low_point[0])
-    #     long = abs(hi_point[1] - low_point[1])
-    #     print(width)
-    #     print(long)
-    #     kol_sqrt = int(width / 0.001)
-    #     koef_lend = leng_side / 100.0
-    #     print(kol_sqrt)
+    end_long = 37.652
+    leng_side = 1000
+    kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point = [55.7744, 37.580],
+                                                                                    low_point = [55.7294, 37.652],
+                                                                                    leng_side = leng_side)
 
     return render_template('map_index.html',
                             lcc = lcc,
@@ -36,7 +32,10 @@ def map():
                             start_long = start_long,
                             end_width = end_width,
                             end_long = end_long,
-                            leng_side = leng_side
+                            leng_side = leng_side,
+                            kol_sqrt_width = kol_sqrt_width,
+                            kol_sqrt_long = kol_sqrt_long,
+                            koef_lend = koef_lend
                             )
 
 @app.route("/")

@@ -26,6 +26,9 @@
                                 let end_width = {{end_width}};
                                 let end_long = {{end_long}};
                                 let leng_side = {{leng_side}};
+                                let kol_sqrt_width = {{kol_sqrt_width}};
+                                let kol_sqrt_long = {{kol_sqrt_long}};
+                                let koef_lend = {{koef_lend}};
                                 //let width = abs(start_width - end_width);
                                 DG.then(function() {
                                    var map;
@@ -47,18 +50,24 @@
                                         zoom: zz
                                     });
 
-                                    var bounds = [[55.7744,37.580],
-                                                  [55.7294,37.66]]
+                                    var bounds = [[55.7744,37.580], [55.7294,37.66]];
+                                    var ww, ll;
 
+
+                                    var bounds2 = [[55.770,37.640], [55.732,37.600]];
+
+                                    for (ww=0; ww<kol_sqrt_width; ww++) {
+                                        for (ll=0; ll<kol_sqrt_long; ll++){
+                                            bounds2 = [[start_width - 0.0009*ww*koef_lend,
+                                                        start_long + 0.0016*ll*koef_lend],
+                                                        [start_width - 0.0009 * (ww + 1) * koef_lend,
+                                                        start_long + 0.0016 * (ll + 1) * koef_lend]];
+                                            DG.rectangle(bounds2, {color: "#ff7800", weight: 1}).addTo(map);
+                                            map.fitBounds(bounds2);
+                                        }
+                                    }
                                     DG.rectangle(bounds, {color: "#ff7800", weight: 5}).addTo(map);
                                     map.fitBounds(bounds);
-
-                                    var bounds2 = [[55.770,37.640],
-                                                  [55.732,37.600]]
-
-                                    DG.rectangle(bounds2, {color: "#ff7800", weight: 1}).addTo(map);
-
-                                    map.fitBounds(bounds2);
 
                                     //myDivIcon = DG.divIcon({
                                     //    iconSize: [70, 20],
