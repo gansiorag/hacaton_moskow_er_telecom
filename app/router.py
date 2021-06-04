@@ -19,8 +19,8 @@ def map():
     end_width = 55.7294
     end_long = 37.652
     leng_side = 500
-    kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point = [55.7744, 37.580],
-                                                                                    low_point = [55.7294, 37.652],
+    kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point = [start_width, start_long],
+                                                                                    low_point = [end_width, end_long],
                                                                                     leng_side = leng_side)
 
     return render_template('map_index.html',
