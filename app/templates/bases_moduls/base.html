@@ -65,12 +65,12 @@
 
                 <!-- Верхнее меню (пункты меню)  -->
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="/nott/">Выбор модели обработки данных</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/admin/">Настройка визуализации</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/spravoch/">Справочник</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/nott/">Поддержка</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/nott/">О нас</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/nott/">Контакты</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/choose_model">Выбор модели обработки данных</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin">Настройка визуализации</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/reference_book">Справочник</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/support">Поддержка</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/info">О нас</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacts">Контакты</a></li>
                 </ul>
                 <!-- Конец Ссылки  -->
                 <!-- Форма Поиска  -->
@@ -110,7 +110,7 @@
                     </h5>
                     <ul class="dropdown-menu">
                         <li><a href="/coord">Получение координат по адресу</a></li>
-                        <li><a href="/optimisetion_potr/">Оптимизация потребления</a></li>
+                        <li><a href="/optimisetion_potr">Оптимизация потребления</a></li>
                         <li><a href="/mapss">Карты</a></li>
                         <li><a href="/hist">Гистограммы по региону</a></li>
 
@@ -123,9 +123,9 @@
                             class="caret"></b>
                     </h5>
                     <ul class="dropdown-menu">
-                        <li><a href="/notthhh/">Оценка места по адресу</a></li>
-                        <li><a href="/nott/">Оценка места по координатам</a></li>
-                        <li><a href="/nott/">Поиск по тепловой карте </a></li>
+                        <li><a href="/coords_by_address">Оценка места по адресу</a></li>
+                        <li><a href="/valuation_by_coords">Оценка места по координатам</a></li>
+                        <li><a href="/search_by_heat_map">Поиск по тепловой карте </a></li>
                     </ul>
                 </div>
                 <br>
@@ -133,8 +133,8 @@
                     <h5 class="dropdown-toggle" data-toggle="dropdown">Оценка бизнеса <b class="caret"></b>
                     </h5>
                     <ul class="dropdown-menu">
-                        <li><a href="/nott/">По расстоянию</a></li>
-                        <li><a href="/nott/">От району</a></li>
+                        <li><a href="/valuation_by_distance">По расстоянию</a></li>
+                        <li><a href="/valuation_by_district">От району</a></li>
                     </ul>
                 </div>
                 <br>
@@ -142,9 +142,9 @@
                     <h5 class="dropdown-toggle" data-toggle="dropdown">Наблюдение <br>за бизнесом<b class="caret"></b>
                     </h5>
                     <ul class="dropdown-menu">
-                        <li><a href="/nott/">Установка сигнальных точек</a></li>
-                        <li><a href="/nott/">Состояние бизнеса на текущий момент</a></li>
-                        <li><a href="/nott/">Состояние бизнеса и конкуренты</a></li>
+                        <li><a href="/setting_signal_points">Установка сигнальных точек</a></li>
+                        <li><a href="/buisness_state_at_the_moment">Состояние бизнеса на текущий момент</a></li>
+                        <li><a href="/buisness_state_and_rivalry">Состояние бизнеса и конкуренты</a></li>
                     </ul>
                 </div>
                 <a href="/mapss">Работа с картой</a>
@@ -158,7 +158,8 @@
             <div class="col-md-10">
                 <div class="container-fluid" style="border:1px solid #000000; height: 1500px;">
                     {% block work_area%}
-                    work_area
+                        <br><br><br>
+                        <h2 style="text-align: center">Извините, страница еще разрабатывается</h2>
                     {% endblock%}
                 </div>
             </div>
