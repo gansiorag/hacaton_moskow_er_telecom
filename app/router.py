@@ -58,10 +58,10 @@ def optimisetion_potr():
     title = "optimisetion_potr"
     return render_template('/optimisetion_potr.html', title = title)
 
-@app.route("/coords_by_address")
-def coords_by_address():
-    title = "coords_by_address"
-    return render_template('/coords_by_address.html', title = title)
+@app.route("/valuation_by_address")
+def valuation_by_address():
+    title = "valuation_by_address"
+    return render_template('/valuation_by_address.html', title = title)
 
 @app.route("/valuation_by_coords")
 def valuation_by_coords():
