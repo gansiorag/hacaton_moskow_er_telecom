@@ -9,17 +9,25 @@ from app import app
 from app.servis_modules import get_array_borders_squere
 
 
+
 @app.route("/mapss")
 def map():
-    pcc = 37.620000
-    lcc = 55.752900
-    zoom = 12
-    level = 100
+
+    # parameters for starts page
+    # this parameters base reсtangle jn map - coordinates highe of left angle and low of rigth angle
+
     start_width = 55.7744
     start_long = 37.580
     end_width = 55.7294
     end_long = 37.652
+
+    zoom = 12 # start zoom
+
+    # this coordinates center rectangle
+    pcc = (start_long + end_long)/2
+    lcc = (start_width + end_width)/2
     leng_side = 500
+
     kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point=[start_width, start_long],
                                                                                     low_point=[end_width, end_long],
                                                                                     leng_side=leng_side)
@@ -28,7 +36,6 @@ def map():
                            lcc=lcc,
                            pcc=pcc,
                            zoom=zoom,
-                           level=level,
                            start_width=start_width,
                            start_long=start_long,
                            end_width=end_width,
@@ -46,16 +53,22 @@ def index():
     return render_template('/index.html', title=title)
 
 
-@app.route("/coord")
+@app.route("/legal_data")
 def coord():
-    title = "Кординаты"
+    title = "Юридические данные"
     return render_template('/coord.html', title=title)
 
 
-@app.route("/hist")
+@app.route("/fin_data")
+def fin_data():
+    title = "Финансовые данные"
+    return render_template('/fin_data.html', title=title)
+
+
+@app.route("/special_data")
 def hist():
-    title = "hist"
-    return render_template('/hist.html', title=title)
+    title = "Специальные даные"
+    return render_template('/special_data.html', title=title)
 
 
 @app.route("/valuation_by_address")

@@ -20,7 +20,6 @@
                                 let lcc={{lcc}};
                                 let pcc={{pcc}};
                                 let zz={{zoom}};
-                                let level={{level}};
                                 let start_width = {{start_width}};
                                 let start_long = {{start_long}};
                                 let end_width = {{end_width}};
@@ -62,11 +61,11 @@
                                                         start_long + 0.0016*ll*koef_lend],
                                                         [start_width - 0.0009 * (ww + 1) * koef_lend,
                                                         start_long + 0.0016 * (ll + 1) * koef_lend]];
-                                            DG.rectangle(bounds2, {color: "#ff7800", weight: 1}).addTo(map);
+                                            DG.rectangle(bounds2, {color: "#ff7800", weight: 0.2}).addTo(map);
                                             map.fitBounds(bounds2);
                                         }
                                     }
-                                    DG.rectangle(bounds, {color: "#ff7800", weight: 5}).addTo(map);
+                                    DG.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
                                     map.fitBounds(bounds);
 
                                     //myDivIcon = DG.divIcon({
