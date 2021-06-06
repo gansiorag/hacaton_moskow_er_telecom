@@ -8,6 +8,7 @@ Author Gansior A. mail - gansior@gansior.ru, tel - +79173383804
 from geopy import distance
 import math
 from pprint import pprint
+from work_with_data_set import Data_set
 
 def proga():
     print(round(distance.GeodesicDistance([55.755,37.60176], [55.755,37.600]).m,0))
@@ -33,7 +34,7 @@ def get_array_borders_squere(hi_point = [55.7744, 37.580],  low_point = [55.7294
     return kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt
 
 
-from work_with_data_set import Data_set
+
 
 
 class One_pix():
@@ -43,13 +44,19 @@ class One_pix():
         self.low_point_pix = dict_param['coord_pix'][2]
         print(self.hi_point_pix)
         self.array_type_objects={'theaters':{'path':'app/data_set/theatres.csv', 
-                                             'sep': ';'}
+                                             'sep': ';'},
+                                 'food':{'path':'app/data_set/общепит_data-4275-2021-06-01.csv',
+                                         'sep':'^'}
                                  
                                  }
         self.array_objects_pix = {'theaters': self.get_array_objects(self.hi_point_pix, 
                                                                      self.low_point_pix, 
                                                                      'theaters', 
-                                                                     self.array_type_objects['theaters']['path'])
+                                                                     self.array_type_objects['theaters']['path']),
+                                  'food': self.get_array_objects(self.hi_point_pix, 
+                                                                     self.low_point_pix, 
+                                                                     'food', 
+                                                                     self.array_type_objects['food']['path'])
                                   }
         
     
@@ -59,13 +66,18 @@ class One_pix():
                           name_files = 'lll.csv') -> list:
         array_def = []
         with open(name_files, 'r') as is_f:
+            k = 0
             for line in is_f:
+                k += 1
                 analiz = Data_set(line, 
-                    self.array_type_objects['theaters']['sep'],
+                    self.array_type_objects[name_array]['sep'],
                     self.hi_point_pix,
                     self.low_point_pix)
                 if name_array =='theaters' : 
                     ddd = analiz.theatres()
+                    if ddd: array_def.append(ddd)
+                if name_array =='food' and k!= 1: 
+                    ddd = analiz.food()
                     if ddd: array_def.append(ddd)
         return array_def
     
@@ -95,5 +107,5 @@ if __name__ == '__main__':
     leng_side = 500
     param = {'coord_pix':[[pcc, lcc], hi_point,low_point]}
     main_reactange = One_pix(param)
-    pprint(main_reactange.array_objects_pix)
-    print('len = ',len(main_reactange.array_objects_pix['theaters']))
+    pprint(main_reactange.array_objects_pix['food'])
+    print('len = ',len(main_reactange.array_objects_pix['food']))
