@@ -28,8 +28,8 @@ class Data_set():
             one_object = {'name': self.servis_list[1].strip(),
                 'net': self.servis_list[3].strip(),
                 'type_vid': self.servis_list[5].strip(),
-                'adress':self.servis_list[7].strip(),
-                'chears':self.servis_list[8].strip(),
+                'adress':self.servis_list[8].strip(),
+                'chears':self.servis_list[9].strip(),
                 'ltt': float(self.servis_list[-1].strip()),
                 'lnt': float(self.servis_list[-2].strip())}
         return one_object

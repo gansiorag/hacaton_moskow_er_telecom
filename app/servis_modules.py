@@ -8,7 +8,7 @@ Author Gansior A. mail - gansior@gansior.ru, tel - +79173383804
 from geopy import distance
 import math
 from pprint import pprint
-from work_with_data_set import Data_set
+from app.work_with_data_set import Data_set
 
 def proga():
     print(round(distance.GeodesicDistance([55.755,37.60176], [55.755,37.600]).m,0))
@@ -43,9 +43,9 @@ class One_pix():
         self.hi_point_pix = dict_param['coord_pix'][1]
         self.low_point_pix = dict_param['coord_pix'][2]
         print(self.hi_point_pix)
-        self.array_type_objects={'theaters':{'path':'app/data_set/theatres.csv', 
+        self.array_type_objects={'theaters':{'path':'data_set/theatres.csv',
                                              'sep': ';'},
-                                 'food':{'path':'app/data_set/общепит_data-4275-2021-06-01.csv',
+                                 'food':{'path':'data_set/общепит_data-4275-2021-06-01.csv',
                                          'sep':'^'}
                                  
                                  }
