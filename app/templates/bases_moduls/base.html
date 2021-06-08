@@ -94,8 +94,26 @@
             <!-- bloc left menu -->
 
             <div class="col-md-2" style="border:1px solid #000000; height: 1500px;">
+                  <br><br>
+                         <div class="dropdown" style="color: #005999; width: 150%;">
+                    <h5 class="dropdown-toggle" data-toggle="dropdown">Параметры <br>исследуемого <br>бизнеса <b
+                            class="caret"></b>
+                    </h5>
+                    <ul class="dropdown-menu">
+                        <li><a href="/legal_data">Юридические данные</a></li>
+                        <li><a href="/fin_data">Финансовые данные</a></li>
+                        <li><a href="/special_data">Специальные данные</a></li>
 
-                <p></p>
+                    </ul>
+                </div>
+                <br><br>
+                                <div class="h-divider"></div>
+                <br>
+
+                {% block lef_menu_block_two%}
+
+
+                  <p></p>
                 {% block lef_menu_block_one%}
                 <h5><b>Сервисы</b></h5>
                 {% endblock%}
@@ -103,27 +121,12 @@
                 <div class="h-divider"></div>
                 <br>
 
-                {% block lef_menu_block_two%}
-                <div class="dropdown" style="color: #005999;">
-                    <h5 class="dropdown-toggle" data-toggle="dropdown">Параметры <br>исследуемого <br>бизнеса <b
-                            class="caret"></b>
-                    </h5>
-                    <ul class="dropdown-menu">
-                        <li><a href="/coord">Получение координат по адресу</a></li>
-                        <li><a href="/optimisetion_potr">Оптимизация потребления</a></li>
-                        <li><a href="/mapss">Карты</a></li>
-                        <li><a href="/hist">Гистограммы по региону</a></li>
-
-                    </ul>
-                </div>
-                <br>
-
                 <div class="dropdown" style="color: #005999;">
                     <h5 class="dropdown-toggle" data-toggle="dropdown">Поиск нового <br>места для<br>бизнеса <b
                             class="caret"></b>
                     </h5>
                     <ul class="dropdown-menu">
-                        <li><a href="/coords_by_address">Оценка места по адресу</a></li>
+                        <li><a href="/valuation_by_address">Оценка места по адресу</a></li>
                         <li><a href="/valuation_by_coords">Оценка места по координатам</a></li>
                         <li><a href="/search_by_heat_map">Поиск по тепловой карте </a></li>
                     </ul>

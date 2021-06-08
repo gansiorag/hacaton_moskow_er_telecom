@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-from drivers.init_drevers import init_drivers
+from app.drivers.init_drevers import init_drivers
 import time
 
 def get_all_href(driver):
