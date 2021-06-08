@@ -1,1 +1,63 @@
 {% extends "bases_moduls/base.html" %}
+
+{% block work_area%}
+<style type="text/css">
+    form {
+      margin: 50px auto;
+      width: 400px;
+      padding: 1em;
+      border: 1px solid #CCC;
+      border-radius: 1em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    form li + li {
+      margin-top: 1em;
+    }
+
+    label {
+      display: inline-block;
+      width: 200px;
+    }
+
+    input {
+      font: 1em sans-serif;
+      width: 300px;
+      box-sizing: border-box;
+      border: 1px solid #999;
+    }
+
+    input:focus {
+      border-color: #000;
+    }
+</style>
+
+<div>
+    <form action="">
+        <ul>
+            <li>
+                <label for="employees">Количество сотрудников</label>
+                <input id="employees" type="text">
+            </li>
+            <li>
+                <label for="affiliate">Количество филиалов</label>
+                <input id="affiliate" type="text">
+            </li>
+            <li>
+                <label for="records_from_tax_office">Все показатели с налоговой по ИНН</label>
+                <input id="legal_address" type="text">
+            </li>
+            <li>
+                <label for="fair_business_data">Данные с сайта за честный бизнес</label>
+                <input id="boss" type="text">
+            </li>
+        </ul>
+    </form>
+</div>
+
+{% endblock %}

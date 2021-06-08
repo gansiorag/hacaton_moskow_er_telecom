@@ -1,0 +1,93 @@
+{% extends "bases_moduls/base.html" %}
+
+{% block work_area%}
+<style type="text/css">
+    form {
+      margin: 50px auto;
+      width: 400px;
+      padding: 1em;
+      border: 1px solid #CCC;
+      border-radius: 1em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    form li + li {
+      margin-top: 1em;
+    }
+
+    label {
+      display: inline-block;
+      width: 200px;
+    }
+
+    input {
+      font: 1em sans-serif;
+      width: 300px;
+      box-sizing: border-box;
+      border: 1px solid #999;
+    }
+
+    input:focus {
+      border-color: #000;
+    }
+</style>
+
+<div>
+    <form action="">
+        <ul>
+            <li>
+                <label for="all_activities">Все виды деятельности объявленные при регистрации</label>
+                <input id="all_activities" type="text">
+            </li>
+            <li>
+                <label for="address">Адрес дислокации</label>
+                <input id="address" type="text">
+            </li>
+            <li>
+                <label for="INN">ИНН</label>
+                <input id="INN" type="text">
+            </li>
+            <li>
+                <label for="OGRN">ОГРН</label>
+                <input id="OGRN" type="text">
+            </li>
+            <li>
+                <label for="activity">Вид деятельности</label>
+                <input id="activity" type="text">
+            </li>
+            <li>
+                <label for="legal_address">Юридический адрес</label>
+                <input id="legal_address" type="text">
+            </li>
+            <li>
+                <label for="boss">Руководитель</label>
+                <input id="boss" type="text">
+            </li>
+            <ul>
+                <li>
+                <label for="sex">Пол</label>
+                <input id="sex" type="text">
+                </li>
+                <li>
+                    <label for="age">Возраст</label>
+                    <input id="age" type="text">
+                </li>
+                <li>
+                    <label for="education">Образование</label>
+                    <input id="education" type="text">
+                </li>
+            </ul>
+            <li>
+                <label for="authorized_capital">Уставной капитал</label>
+                <input id="authorized_capital" type="text">
+            </li>
+        </ul>
+    </form>
+</div>
+
+{% endblock %}

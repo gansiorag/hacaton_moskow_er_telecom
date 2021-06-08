@@ -56,7 +56,7 @@ def index():
 @app.route("/legal_data")
 def coord():
     title = "Юридические данные"
-    return render_template('/coord.html', title=title)
+    return render_template('/legal_data.html', title=title)
 
 
 @app.route("/fin_data")
