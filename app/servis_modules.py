@@ -60,7 +60,7 @@ class One_pix():
                                   }
         
     
-    def get_array_objects(self, hi_point = [55.7744, 37.580],  
+    def get_array_objects_from_file_data_set(self, hi_point = [55.7744, 37.580],
                           low_point = [55.7294, 37.652], 
                           name_array = 'nonsens', 
                           name_files = 'lll.csv') -> list:
@@ -80,13 +80,42 @@ class One_pix():
                     ddd = analiz.food()
                     if ddd: array_def.append(ddd)
         return array_def
-    
+
+
+    def get_array_objects_from_self(self, hi_point = [55.7744, 37.580],
+                          low_point = [55.7294, 37.652],
+                          name_array = 'nonsens',
+                          name_files = 'lll.csv') -> list:
+        array_def = []
+        with open(name_files, 'r') as is_f:
+            k = 0
+            for line in is_f:
+                k += 1
+                analiz = Data_set(line,
+                    self.array_type_objects[name_array]['sep'],
+                    self.hi_point_pix,
+                    self.low_point_pix)
+                if name_array =='theaters' :
+                    ddd = analiz.theatres()
+                    if ddd: array_def.append(ddd)
+                if name_array =='food' and k!= 1:
+                    ddd = analiz.food()
+                    if ddd: array_def.append(ddd)
+        return array_def
 
 class Work_with_One_pix():
-    def __init__(self, dict_arry_One_pix:dict):
-        pass
+    def __init__(self, dict_arry_One_pix:One_pix, array_sqrt:list):
+        self.Base_array = dict_arry_One_pix
+        self.array_sqrt = array_sqrt
+        self.array_data_sqrt = self.divide_data_sqrt()
 
+    def divide_data_sqrt(self):
+        arr = {}
+        return arr
 
+    def get_data_sqrt(self):
+        dd = {}
+        return dd
 
 # test part
 

@@ -9,7 +9,6 @@ import pprint
 from collections import Counter
 
 
-
 def statistic_field(name_file):
     array_fields = Counter()
     array_type = Counter()

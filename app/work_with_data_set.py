@@ -3,7 +3,8 @@ class Data_set():
         self.hi_point_pix = hi_point
         self.low_point_pix = low_point
         self.servis_list = line.strip().split(sep)
-    
+
+    # отбор всех театров попадаюих в квадрат
     def theatres(self) -> dict:
         one_object = {}
         #print(float(self.servis_list[2].strip()))
@@ -17,7 +18,7 @@ class Data_set():
                 'lnt': float(self.servis_list[2].strip())}
         return one_object
     
-    
+    # отбор всех точек питания попадающих в квадрат
     def food(self) -> dict:
         one_object = {}
         #print(float(self.servis_list[2].strip()))
