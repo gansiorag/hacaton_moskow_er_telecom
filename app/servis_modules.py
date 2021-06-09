@@ -43,38 +43,118 @@ class One_pix():
         self.array_type_objects={'theaters':{'path':'data_set/theatres.csv',
                                              'sep': ';'},
                                  'food':{'path':'data_set/общепит_data-4275-2021-06-01.csv',
-                                         'sep':'^'}
-                                 
+                                         'sep':'^'},
+                                 'intercepting_parking':{'path':'data_set/intercepting_parking.csv',
+                                         'sep':'^'},
+                                 'paid_parking': {'path':'data_set/парковки/paid_parking.csv',
+                                         'sep':'^'},
+                                 'closed_paid_parking': {'path':'data_set/парковки/closed_paid_parking.csv',
+                                         'sep':'^'},
+                                 'cinemas': {'path':'data_set/cinemas.csv',
+                                         'sep':';'},
+                                 'circus': {'path':'data_set/circus.csv',
+                                         'sep':';'},
+                                 'concert_halls': {'path':'data_set/concertHalls.csv',
+                                         'sep':';'},
+                                 'museums': {'path':'data_set/museums.csv',
+                                         'sep':';'},
+                                 'monuments': {'path':'data_set/monuments.csv',
+                                         'sep':';'},
+                                 'education': {'path':'data_set/education.csv',
+                                         'sep':';'},
                                  }
-        self.array_objects_pix = {'theaters': self.get_array_objects(self.hi_point_pix, 
-                                                                     self.low_point_pix, 
-                                                                     'theaters', 
+        self.array_objects_pix = {'theaters': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'theaters',
                                                                      self.array_type_objects['theaters']['path']),
-                                  'food': self.get_array_objects(self.hi_point_pix, 
-                                                                     self.low_point_pix, 
-                                                                     'food', 
-                                                                     self.array_type_objects['food']['path'])
+                                  'food': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'food',
+                                                                     self.array_type_objects['food']['path']),
+                                  'intercepting_parking': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'intercepting_parking',
+                                                                     self.array_type_objects['intercepting_parking']['path']),
+                                  'paid_parking': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'paid_parking',
+                                                                     self.array_type_objects['paid_parking']['path']),
+                                  'closed_paid_parking': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'closed_paid_parking',
+                                                                     self.array_type_objects['closed_paid_parking']['path']),
+                                  'cinemas': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'cinemas',
+                                                                     self.array_type_objects['cinemas']['path']),
+                                  'circus': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'circus',
+                                                                     self.array_type_objects['circus']['path']),
+                                  'concert_halls': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'concert_halls',
+                                                                     self.array_type_objects['concert_halls']['path']),
+                                  'museums': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'museums',
+                                                                     self.array_type_objects['museums']['path']),
+                                  'monuments': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'monuments',
+                                                                     self.array_type_objects['monuments']['path']),
+                                  'education': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'education',
+                                                                     self.array_type_objects['education']['path'])
                                   }
-        
-    
+
+
     def get_array_objects_from_file_data_set(self, hi_point = [55.7744, 37.580],
-                          low_point = [55.7294, 37.652], 
-                          name_array = 'nonsens', 
+                          low_point = [55.7294, 37.652],
+                          name_array = 'nonsens',
                           name_files = 'lll.csv') -> list:
         array_def = []
         with open(name_files, 'r') as is_f:
             k = 0
             for line in is_f:
                 k += 1
-                analiz = Data_set(line, 
+                analiz = Data_set(line,
                     self.array_type_objects[name_array]['sep'],
                     self.hi_point_pix,
                     self.low_point_pix)
-                if name_array =='theaters' : 
+                if name_array =='theaters' :
                     ddd = analiz.theatres()
                     if ddd: array_def.append(ddd)
-                if name_array =='food' and k!= 1: 
+                if name_array =='food' and k!= 1:
                     ddd = analiz.food()
+                    if ddd: array_def.append(ddd)
+                if name_array =='intercepting_parking':
+                    ddd = analiz.intercepting_parking()
+                    if ddd: array_def.append(ddd)
+                if name_array =='paid_parking':
+                    ddd = analiz.paid_parking()
+                    if ddd: array_def.append(ddd)
+                if name_array =='closed_paid_parking':
+                    ddd = analiz.closed_paid_parking()
+                    if ddd: array_def.append(ddd)
+                if name_array =='cinemas':
+                    ddd = analiz.cinemas()
+                    if ddd: array_def.append(ddd)
+                if name_array =='circus':
+                    ddd = analiz.circus()
+                    if ddd: array_def.append(ddd)
+                if name_array =='concert_halls':
+                    ddd = analiz.concert_halls()
+                    if ddd: array_def.append(ddd)
+                if name_array =='museums':
+                    ddd = analiz.museums()
+                    if ddd: array_def.append(ddd)
+                if name_array =='monuments':
+                    ddd = analiz.monuments()
+                    if ddd: array_def.append(ddd)
+                if name_array =='education':
+                    ddd = analiz.education()
                     if ddd: array_def.append(ddd)
         return array_def
 
@@ -113,6 +193,8 @@ class Work_with_One_pix():
     def get_data_sqrt(self):
         dd = {}
         return dd
+
+
 
 # test part
 
