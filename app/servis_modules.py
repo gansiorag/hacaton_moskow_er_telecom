@@ -34,9 +34,6 @@ def get_array_borders_squere(hi_point = [55.7744, 37.580],  low_point = [55.7294
     return kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt
 
 
-
-
-
 class One_pix():
     def __init__(self, dict_param: dict):
         self.center_pix = dict_param['coord_pix'][0]
