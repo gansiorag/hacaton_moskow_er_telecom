@@ -9,7 +9,6 @@ from app import app
 from app.servis_modules import get_array_borders_squere
 
 
-
 @app.route("/mapss")
 def map():
 
