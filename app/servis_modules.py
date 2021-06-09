@@ -132,31 +132,31 @@ class One_pix():
                 if name_array =='food' and k!= 1:
                     ddd = analiz.food()
                     if ddd: array_def.append(ddd)
-                if name_array =='intercepting_parking' and k!= 2:
+                if name_array =='intercepting_parking':
                     ddd = analiz.intercepting_parking()
                     if ddd: array_def.append(ddd)
-                if name_array =='paid_parking' and k!= 3:
+                if name_array =='paid_parking':
                     ddd = analiz.paid_parking()
                     if ddd: array_def.append(ddd)
-                if name_array =='closed_paid_parking' and k!= 4:
+                if name_array =='closed_paid_parking':
                     ddd = analiz.closed_paid_parking()
                     if ddd: array_def.append(ddd)
-                if name_array =='cinemas' and k!= 5:
+                if name_array =='cinemas':
                     ddd = analiz.cinemas()
                     if ddd: array_def.append(ddd)
-                if name_array =='circus' and k!= 6:
+                if name_array =='circus':
                     ddd = analiz.circus()
                     if ddd: array_def.append(ddd)
-                if name_array =='concert_halls' and k!= 7:
+                if name_array =='concert_halls':
                     ddd = analiz.concert_halls()
                     if ddd: array_def.append(ddd)
-                if name_array =='museums' and k!= 8:
+                if name_array =='museums':
                     ddd = analiz.museums()
                     if ddd: array_def.append(ddd)
-                if name_array =='monuments' and k!= 9:
+                if name_array =='monuments':
                     ddd = analiz.monuments()
                     if ddd: array_def.append(ddd)
-                if name_array =='education' and k!= 10:
+                if name_array =='education':
                     ddd = analiz.education()
                     if ddd: array_def.append(ddd)
         return array_def
