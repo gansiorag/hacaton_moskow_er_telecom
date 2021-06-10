@@ -84,8 +84,38 @@ def valuation_by_coords():
 
 @app.route("/search_by_heat_map")
 def search_by_heat_map():
-    title = "search_by_heat_map"
-    return render_template('/search_by_heat_map.html', title=title)
+    # parameters for starts page
+    # this parameters base reсtangle jn map - coordinates highe of left angle and low of rigth angle
+
+    start_width = 55.7744
+    start_long = 37.580
+    end_width = 55.7294
+    end_long = 37.652
+
+    zoom = 12  # start zoom
+
+    # this coordinates center rectangle
+    pcc = (start_long + end_long) / 2
+    lcc = (start_width + end_width) / 2
+    leng_side = 500
+
+    kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point=[start_width, start_long],
+                                                                                    low_point=[end_width, end_long],
+                                                                                    leng_side=leng_side)
+
+    return render_template('/search_by_heat_map.html',
+                           lcc=lcc,
+                           pcc=pcc,
+                           zoom=zoom,
+                           start_width=start_width,
+                           start_long=start_long,
+                           end_width=end_width,
+                           end_long=end_long,
+                           leng_side=leng_side,
+                           kol_sqrt_width=kol_sqrt_width,
+                           kol_sqrt_long=kol_sqrt_long,
+                           koef_lend=koef_lend
+                           )
 
 
 @app.route("/valuation_by_distance")
