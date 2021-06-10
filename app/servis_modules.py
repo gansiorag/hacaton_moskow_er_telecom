@@ -44,12 +44,12 @@ class One_pix():
                                              'sep': ';'},
                                  'food':{'path':'data_set/общепит_data-4275-2021-06-01.csv',
                                          'sep':'^'},
-                                 'intercepting_parking':{'path':'data_set/intercepting_parking.csv',
-                                         'sep':'^'},
+                                 'intercepting_parking':{'path':'data_set/парковки/intercepting_parking.csv',
+                                         'sep':';'},
                                  'paid_parking': {'path':'data_set/парковки/paid_parking.csv',
-                                         'sep':'^'},
+                                         'sep':';'},
                                  'closed_paid_parking': {'path':'data_set/парковки/closed_paid_parking.csv',
-                                         'sep':'^'},
+                                         'sep':';'},
                                  'cinemas': {'path':'data_set/cinemas.csv',
                                          'sep':';'},
                                  'circus': {'path':'data_set/circus.csv',
@@ -99,10 +99,10 @@ class One_pix():
                                                                      self.low_point_pix,
                                                                      'museums',
                                                                      self.array_type_objects['museums']['path']),
-                                  'monuments': self.get_array_objects_from_file_data_set(self.hi_point_pix,
-                                                                     self.low_point_pix,
-                                                                     'monuments',
-                                                                     self.array_type_objects['monuments']['path']),
+                                  # 'monuments': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                  #                                    self.low_point_pix,
+                                  #                                    'monuments',
+                                  #                                    self.array_type_objects['monuments']['path']),
                                   'education': self.get_array_objects_from_file_data_set(self.hi_point_pix,
                                                                      self.low_point_pix,
                                                                      'education',
@@ -159,27 +159,6 @@ class One_pix():
         return array_def
 
 
-    def get_array_objects_from_self(self, hi_point = [55.7744, 37.580],
-                          low_point = [55.7294, 37.652],
-                          name_array = 'nonsens',
-                          name_files = 'lll.csv') -> list:
-        array_def = []
-        with open(name_files, 'r') as is_f:
-            k = 0
-            for line in is_f:
-                k += 1
-                analiz = Data_set(line,
-                    self.array_type_objects[name_array]['sep'],
-                    self.hi_point_pix,
-                    self.low_point_pix)
-                if name_array =='theaters' :
-                    ddd = analiz.theatres()
-                    if ddd: array_def.append(ddd)
-                if name_array =='food' and k!= 1:
-                    ddd = analiz.food()
-                    if ddd: array_def.append(ddd)
-        return array_def
-
 class Work_with_One_pix():
     def __init__(self, dict_arry_One_pix:One_pix, array_sqrt:list):
         self.Base_array = dict_arry_One_pix
@@ -215,5 +194,15 @@ if __name__ == '__main__':
     leng_side = 500
     param = {'coord_pix':[[pcc, lcc], hi_point,low_point]}
     main_reactange = One_pix(param)
-    pprint(main_reactange.array_objects_pix['food'])
-    print('len = ',len(main_reactange.array_objects_pix['food']))
+    #pprint(main_reactange.array_objects_pix['food'])
+    print('len food = ',len(main_reactange.array_objects_pix['food']))
+    print('len intercepting_parking = ', len(main_reactange.array_objects_pix['intercepting_parking']))
+    print('len theaters = ',len(main_reactange.array_objects_pix['theaters']))
+    print('len paid_parking = ', len(main_reactange.array_objects_pix['paid_parking']))
+    print('len closed_paid_parking = ', len(main_reactange.array_objects_pix['closed_paid_parking']))
+    print('len cinemas = ', len(main_reactange.array_objects_pix['cinemas']))
+    print('len circus = ', len(main_reactange.array_objects_pix['circus']))
+    print('len concert_halls = ', len(main_reactange.array_objects_pix['concert_halls']))
+    print('len museums = ', len(main_reactange.array_objects_pix['museums']))
+    # print('len monuments = ', len(main_reactange.array_objects_pix['monuments']))
+    print('len education = ', len(main_reactange.array_objects_pix['education']))
