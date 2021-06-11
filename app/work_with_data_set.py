@@ -63,7 +63,6 @@ class Data_set():
 
     def closed_paid_parking(self) -> dict:
         one_object = {}
-        print(self.servis_list)
         if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
         float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
         float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and

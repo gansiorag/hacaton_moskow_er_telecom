@@ -17,10 +17,10 @@ def get_array_borders_squere(hi_point = [55.7744, 37.580],  low_point = [55.7294
     kol_sqrt_width = int(round(distance.GeodesicDistance([hi_point[0], 0.0], [low_point[0], 0.0]).m,0)/leng_side)
     kol_sqrt_long = int(round(distance.GeodesicDistance([0.0, hi_point[1]], [0.0, low_point[1]]).m,0)/(leng_side*1.6))
 
-    print(kol_sqrt_width)
-    print(kol_sqrt_long)
+    #print(kol_sqrt_width)
+    #print(kol_sqrt_long)
     koef_lend =leng_side/100.0
-    print(koef_lend)
+    #print(koef_lend)
     array_sqrt = []
     for ww in range(0, kol_sqrt_width):
         for ll in range(0, kol_sqrt_long):
@@ -39,7 +39,7 @@ class One_pix():
         self.center_pix = dict_param['coord_pix'][0]
         self.hi_point_pix = dict_param['coord_pix'][1]
         self.low_point_pix = dict_param['coord_pix'][2]
-        print(self.hi_point_pix)
+        #print(self.hi_point_pix)
         self.array_type_objects={'theaters':{'path':'data_set/theatres.csv',
                                              'sep': ';'},
                                  'food':{'path':'data_set/общепит_data-4275-2021-06-01.csv',
@@ -160,18 +160,37 @@ class One_pix():
 
 
 class Work_with_One_pix():
-    def __init__(self, dict_arry_One_pix:One_pix, array_sqrt:list):
+    def __init__(self, dict_arry_One_pix:dict, array_sqrt:list):
         self.Base_array = dict_arry_One_pix
+        #print(self.Base_array)
         self.array_sqrt = array_sqrt
+        #print(self.array_sqrt)
         self.array_data_sqrt = self.divide_data_sqrt()
 
     def divide_data_sqrt(self):
-        arr = {}
+        arr = []
+        for sqrt in self.array_sqrt:
+            arr.append(self.get_data_sqrt(sqrt))
         return arr
 
-    def get_data_sqrt(self):
-        dd = {}
-        return dd
+    def get_data_sqrt(self, sqrt):
+        print(sqrt)
+        array_obj = []
+        for type_obj in self.Base_array:
+            #print(type_obj)
+            kol_obj = 0
+            for obbj in self.Base_array[type_obj]:
+
+                print('obbj = ',obbj['ltt'],obbj['lnt'])
+                if (sqrt[0][0] >= obbj['ltt'] and
+                    sqrt[1][0] <= obbj['ltt'] and
+                    sqrt[0][1] <= obbj['lnt'] and
+                    sqrt[1][1] >= obbj['lnt']) :
+                    kol_obj +=1
+                    print(obbj['lnt'],obbj['ltt'])
+
+            array_obj.append(kol_obj)
+        return array_obj
 
 
 
@@ -206,3 +225,8 @@ if __name__ == '__main__':
     print('len museums = ', len(main_reactange.array_objects_pix['museums']))
     # print('len monuments = ', len(main_reactange.array_objects_pix['monuments']))
     print('len education = ', len(main_reactange.array_objects_pix['education']))
+    kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point=hi_point,
+                                                                                    low_point=low_point,
+                                                                                    leng_side=leng_side)
+    work_array =  Work_with_One_pix(main_reactange.array_objects_pix, array_sqrt)
+    pprint(work_array.array_data_sqrt)
