@@ -101,7 +101,6 @@ class Data_set():
                   'ltt': float(self.servis_list[3].strip())}
         return one_object
 
-
     def concert_halls(self) -> dict:
         one_object = {}
         #print(float(self.servis_list[2].strip()))
@@ -114,7 +113,6 @@ class Data_set():
                   'lnt': float(self.servis_list[2].strip()),
                   'ltt': float(self.servis_list[3].strip())}
         return one_object
-
 
     def museums(self) -> dict:
         one_object = {}
@@ -129,7 +127,6 @@ class Data_set():
                   'ltt': float(self.servis_list[3].strip())}
         return one_object
 
-
     def monuments(self) -> dict:
         one_object = {}
         #print(float(self.servis_list[2].strip()))
@@ -142,7 +139,6 @@ class Data_set():
                   'lnt': float(self.servis_list[2].strip()),
                   'ltt': float(self.servis_list[3].strip())}
         return one_object
-
 
     def education(self) -> dict:
         one_object = {}
@@ -157,7 +153,6 @@ class Data_set():
                   'ltt': float(self.servis_list[3].strip())}
         return one_object
 
-
     def parks(self) -> dict:
         one_object = {}
         #print(float(self.servis_list[2].strip()))
@@ -169,5 +164,17 @@ class Data_set():
                   'address': self.servis_list[1].strip(),
                   'ltt': float(self.servis_list[2].strip()),
                   'lnt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def metro_exits(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'ltt': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip())}
         return one_object
 
