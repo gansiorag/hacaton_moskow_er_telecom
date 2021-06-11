@@ -157,3 +157,17 @@ class Data_set():
                   'ltt': float(self.servis_list[3].strip())}
         return one_object
 
+
+    def parks(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': self.servis_list[1].strip(),
+                  'ltt': float(self.servis_list[2].strip()),
+                  'lnt': float(self.servis_list[3].strip())}
+        return one_object
+

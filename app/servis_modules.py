@@ -67,6 +67,8 @@ class One_pix():
                                          'sep':';'},
                                  'education': {'path':'data_set/education.csv',
                                          'sep':';'},
+                                 'parks': {'path':'data_set/parks.csv',
+                                         'sep':';'},
                                  }
         self.array_objects_pix = {'theaters': self.get_array_objects_from_file_data_set(self.hi_point_pix,
                                                                      self.low_point_pix,
@@ -111,7 +113,11 @@ class One_pix():
                                   'education': self.get_array_objects_from_file_data_set(self.hi_point_pix,
                                                                      self.low_point_pix,
                                                                      'education',
-                                                                     self.array_type_objects['education']['path'])
+                                                                     self.array_type_objects['education']['path']),
+                                  'parks': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'education',
+                                                                     self.array_type_objects['parks']['path'])
                                   }
 
 
@@ -160,6 +166,9 @@ class One_pix():
                     if ddd: array_def.append(ddd)
                 if name_array =='education':
                     ddd = analiz.education()
+                    if ddd: array_def.append(ddd)
+                if name_array =='parks':
+                    ddd = analiz.parks()
                     if ddd: array_def.append(ddd)
         return array_def
 
