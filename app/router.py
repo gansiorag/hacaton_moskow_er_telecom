@@ -132,7 +132,7 @@ def valuation_by_district():
 
 @app.route("/setting_signal_points")
 def setting_signal_points():
-    title = "setting_signal_points"
+    title = "Установка сигнальных точек"
     return render_template('/setting_signal_points.html', title=title)
 
 

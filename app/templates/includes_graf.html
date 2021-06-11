@@ -1,0 +1,35 @@
+<div id="graf_potr_1">
+         <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);potr
+      var dataisjs = [];
+
+      function drawChart() {
+
+        {#var data_mass =[]#}
+        {#data_mass.push(['Дата', 'Потр. по часам','Заяв. мощ.', 'Квант. 75'])#}
+        {#{% set i=0 %}#}
+        {#{% for itok in data_user[1]['date'] %}#}
+        {#    data_mass.push(['{{data_user[1]['date'][i]}}',#}
+        {#                     {{data_user[1]['data'][i]}},#}
+        {#                     {{data_user[1]['data_max_power'][i]}},#}
+        {#                     {{data_user[1]['data_qv75'][i]}}#}
+        {#                     ])#}
+        {#    {{i}}#}
+        {#    {% set i = i +1 %}#}
+        {# {% endfor%}#}
+
+        var data = google.visualization.arrayToDataTable(data_mass);
+
+        var options = {
+          title: 'График потребления по часам и датам',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('graf_potr_1'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </div>
