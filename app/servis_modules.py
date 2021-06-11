@@ -165,38 +165,41 @@ class One_pix():
 
 
 class Work_with_One_pix():
-    def __init__(self, dict_arry_One_pix:dict, array_sqrt:list):
+    """
+    class work with One_pix
+
+    """
+    def __init__(self, dict_arry_One_pix:dict):
         self.Base_array = dict_arry_One_pix
         #print(self.Base_array)
-        self.array_sqrt = array_sqrt
+        #self.array_sqrt = array_sqrt
         #print(self.array_sqrt)
-        self.array_data_sqrt = self.divide_data_sqrt()
+        #self.array_data_sqrt = self.divide_data_sqrt()
 
-    def divide_data_sqrt(self):
+    def divide_data_sqrt(self, array_sqrt):
+        """
+        create array sqrts with objects
+        :return:
+        """
         arr = []
-        for sqrt in self.array_sqrt:
+        for sqrt in array_sqrt:
             arr.append(self.get_data_sqrt(sqrt))
         return arr
 
     def get_data_sqrt(self, sqrt):
-        #print(sqrt)
+        """
+        get all type objects in sqrt
+        :param sqrt: coordinate sqrt = [[start point, end point],[start point, end point]]
+        :return: list with number objects on type [10,20,0,33,325,66,58]
+        """
         array_obj = []
         for type_obj in self.Base_array:
-
             kol_obj = 0
             print(type_obj)
             for obbj in self.Base_array[type_obj]:
-                #if type_obj == 'food':
-                    # print('sqrt 0  = ', sqrt[0][0], sqrt[0][1])
-                    # print('sqrt 1  = ', sqrt[1][0], sqrt[1][1])
-                    # print('obbj = ',obbj['ltt'],obbj['lnt'])
-
-                    #if kol_obj > 10: break
                     if ((sqrt[0][0] >= obbj['ltt']) and (sqrt[1][0] <= obbj['ltt'])) and\
                        ((sqrt[0][1] <= obbj['lnt']) and (sqrt[1][1] >= obbj['lnt'])) :
                         kol_obj += 1
-                        #print('rez = ',obbj['lnt'],obbj['ltt'])
-
             array_obj.append(kol_obj)
         return array_obj
 
@@ -238,5 +241,5 @@ if __name__ == '__main__':
                                                                                     low_point=low_point,
                                                                                     leng_side=leng_side)
     pprint(array_sqrt)
-    work_array =  Work_with_One_pix(main_reactange.array_objects_pix, array_sqrt)
-    pprint(work_array.array_data_sqrt)
+    work_array =  Work_with_One_pix(main_reactange.array_objects_pix)
+    pprint(work_array.divide_data_sqrt(array_sqrt))

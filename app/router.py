@@ -7,7 +7,8 @@ from flask import render_template
 
 from app import app
 from app.servis_modules import get_array_borders_squere
-
+from app.servis_modules import One_pix
+from app.servis_modules import Work_with_One_pix
 
 @app.route("/mapss")
 def map():
@@ -19,17 +20,22 @@ def map():
     start_long = 37.580
     end_width = 55.7294
     end_long = 37.652
-
+    hi_point = [start_width, start_long]
+    low_point = [end_width, end_long]
     zoom = 12 # start zoom
 
     # this coordinates center rectangle
     pcc = (start_long + end_long)/2
     lcc = (start_width + end_width)/2
     leng_side = 2500
-
+    param = {'coord_pix':[[pcc, lcc], hi_point,low_point]}
+    name_obj = ['theaters','food','intercepting_parking','paid_parking','closed_paid_parking',
+                'cinemas','circus','concert_halls','museums','education']
+    main_reactange = One_pix(param)
     kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point=[start_width, start_long],
                                                                                     low_point=[end_width, end_long],
                                                                                     leng_side=leng_side)
+    work_array = Work_with_One_pix(main_reactange.array_objects_pix, array_sqrt)
 
     return render_template('map_index.html',
                            lcc=lcc,
