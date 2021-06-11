@@ -28,8 +28,8 @@ def get_array_borders_squere(hi_point = [55.7744, 37.580],  low_point = [55.7294
             #                                        hi_point[1]+0.0016*ll*koef_lend],
             #                                        [hi_point[0] + 0.0009 * (ww + 1)*koef_lend,
             #                                         hi_point[1] + 0.0016 * (ll+1)*koef_lend]).m, 0))
-            array_sqrt.append([[hi_point[0] - 0.0009*ww*koef_lend, hi_point[1] - 0.0016*ll*koef_lend],
-                              [hi_point[0] - 0.0009 * (ww + 1) * koef_lend, hi_point[1] - 0.0016 * (ll + 1) * koef_lend]]
+            array_sqrt.append([[hi_point[0] - 0.0009*ww*koef_lend, hi_point[1] - 0.0016 * (ll + 1) * koef_lend],
+                              [hi_point[0] - 0.0009 * (ww + 1) * koef_lend, hi_point[1] - 0.0016*ll*koef_lend,]]
                               )
     return kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt
 
@@ -39,7 +39,8 @@ class One_pix():
         self.center_pix = dict_param['coord_pix'][0]
         self.hi_point_pix = dict_param['coord_pix'][1]
         self.low_point_pix = dict_param['coord_pix'][2]
-        #print(self.hi_point_pix)
+        print(self.hi_point_pix)
+        print(self.low_point_pix)
         self.array_type_objects={'theaters':{'path':'data_set/theatres.csv',
                                              'sep': ';'},
                                  'food':{'path':'data_set/общепит_data-4275-2021-06-01.csv',
@@ -174,20 +175,25 @@ class Work_with_One_pix():
         return arr
 
     def get_data_sqrt(self, sqrt):
-        print(sqrt)
+        #print(sqrt)
         array_obj = []
         for type_obj in self.Base_array:
-            #print(type_obj)
-            kol_obj = 0
-            for obbj in self.Base_array[type_obj]:
 
-                print('obbj = ',obbj['ltt'],obbj['lnt'])
+            kol_obj = 0
+            #print(type_obj)
+            for obbj in self.Base_array[type_obj]:
+                if type_obj == 'food':
+                    print('sqrt 0  = ', sqrt[0][0], sqrt[0][1])
+                    print('sqrt 1  = ', sqrt[1][0], sqrt[1][1])
+                    print('obbj = ',obbj['ltt'],obbj['lnt'])
+
+                #if kol_obj > 10: break
                 if (sqrt[0][0] >= obbj['ltt'] and
                     sqrt[1][0] <= obbj['ltt'] and
                     sqrt[0][1] <= obbj['lnt'] and
                     sqrt[1][1] >= obbj['lnt']) :
-                    kol_obj +=1
-                    print(obbj['lnt'],obbj['ltt'])
+                    kol_obj += 1
+                    print('rez = '.obbj['lnt'],obbj['ltt'])
 
             array_obj.append(kol_obj)
         return array_obj
@@ -215,18 +221,19 @@ if __name__ == '__main__':
     main_reactange = One_pix(param)
     #pprint(main_reactange.array_objects_pix['food'])
     print('len food = ',len(main_reactange.array_objects_pix['food']))
-    print('len intercepting_parking = ', len(main_reactange.array_objects_pix['intercepting_parking']))
-    print('len theaters = ',len(main_reactange.array_objects_pix['theaters']))
-    print('len paid_parking = ', len(main_reactange.array_objects_pix['paid_parking']))
-    print('len closed_paid_parking = ', len(main_reactange.array_objects_pix['closed_paid_parking']))
-    print('len cinemas = ', len(main_reactange.array_objects_pix['cinemas']))
-    print('len circus = ', len(main_reactange.array_objects_pix['circus']))
-    print('len concert_halls = ', len(main_reactange.array_objects_pix['concert_halls']))
-    print('len museums = ', len(main_reactange.array_objects_pix['museums']))
-    # print('len monuments = ', len(main_reactange.array_objects_pix['monuments']))
-    print('len education = ', len(main_reactange.array_objects_pix['education']))
+    #pprint(main_reactange.array_objects_pix['food'])
+    # print('len intercepting_parking = ', len(main_reactange.array_objects_pix['intercepting_parking']))
+    # print('len theaters = ',len(main_reactange.array_objects_pix['theaters']))
+    # print('len paid_parking = ', len(main_reactange.array_objects_pix['paid_parking']))
+    # print('len closed_paid_parking = ', len(main_reactange.array_objects_pix['closed_paid_parking']))
+    # print('len cinemas = ', len(main_reactange.array_objects_pix['cinemas']))
+    # print('len circus = ', len(main_reactange.array_objects_pix['circus']))
+    # print('len concert_halls = ', len(main_reactange.array_objects_pix['concert_halls']))
+    # print('len museums = ', len(main_reactange.array_objects_pix['museums']))
+    # # print('len monuments = ', len(main_reactange.array_objects_pix['monuments']))
+    # print('len education = ', len(main_reactange.array_objects_pix['education']))
     kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point=hi_point,
                                                                                     low_point=low_point,
                                                                                     leng_side=leng_side)
     work_array =  Work_with_One_pix(main_reactange.array_objects_pix, array_sqrt)
-    pprint(work_array.array_data_sqrt)
+    #pprint(work_array.array_data_sqrt)
