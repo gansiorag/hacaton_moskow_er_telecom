@@ -25,7 +25,7 @@ def map():
     # this coordinates center rectangle
     pcc = (start_long + end_long)/2
     lcc = (start_width + end_width)/2
-    leng_side = 500
+    leng_side = 2500
 
     kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point=[start_width, start_long],
                                                                                     low_point=[end_width, end_long],

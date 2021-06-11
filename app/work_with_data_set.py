@@ -43,8 +43,8 @@ class Data_set():
             one_object = {'name': self.servis_list[0].strip(),
                 'schedule': self.servis_list[1].strip(),
                 'car_capacity': self.servis_list[2].strip(),
-                'ltt': float(self.servis_list[3].strip()),
-                'lnt': float(self.servis_list[4].strip())}
+                'lnt': float(self.servis_list[3].strip()),
+                'ltt': float(self.servis_list[4].strip())}
         return one_object
 
     def paid_parking(self) -> dict:
@@ -57,13 +57,12 @@ class Data_set():
             one_object = {'name': self.servis_list[0].strip(),
                 'car_capacity': self.servis_list[1].strip(),
                 'address': self.servis_list[2].strip(),
-                'ltt': float(self.servis_list[3].strip()),
-                'lnt': float(self.servis_list[4].strip())}
+                'lnt': float(self.servis_list[3].strip()),
+                'ltt': float(self.servis_list[4].strip())}
         return one_object
 
     def closed_paid_parking(self) -> dict:
         one_object = {}
-        print(self.servis_list)
         if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
         float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
         float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
@@ -72,8 +71,8 @@ class Data_set():
                   'schedule': self.servis_list[1].strip(),
                   'car_capacity': self.servis_list[2].strip(),
                   'address': self.servis_list[3].strip(),
-                  'ltt': float(self.servis_list[5].strip()),
-                  'lnt': float(self.servis_list[4].strip())}
+                  'lnt': float(self.servis_list[5].strip()),
+                  'ltt': float(self.servis_list[4].strip())}
         return one_object
 
     def cinemas(self) -> dict:
@@ -85,8 +84,8 @@ class Data_set():
         float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
             one_object = {'name': self.servis_list[0].strip(),
                   'address': self.servis_list[1].strip(),
-                  'ltt': float(self.servis_list[2].strip()),
-                  'lnt': float(self.servis_list[3].strip())}
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
         return one_object
 
     def circus(self) -> dict:
@@ -98,8 +97,8 @@ class Data_set():
         float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
             one_object = {'name': self.servis_list[0].strip(),
                   'address': self.servis_list[1].strip(),
-                  'ltt': float(self.servis_list[2].strip()),
-                  'lnt': float(self.servis_list[3].strip())}
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
         return one_object
 
 
@@ -112,8 +111,8 @@ class Data_set():
         float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
             one_object = {'name': self.servis_list[0].strip(),
                   'address': self.servis_list[1].strip(),
-                  'ltt': float(self.servis_list[2].strip()),
-                  'lnt': float(self.servis_list[3].strip())}
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
         return one_object
 
 
@@ -126,8 +125,8 @@ class Data_set():
         float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
             one_object = {'name': self.servis_list[0].strip(),
                   'address': self.servis_list[1].strip(),
-                  'ltt': float(self.servis_list[2].strip()),
-                  'lnt': float(self.servis_list[3].strip())}
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
         return one_object
 
 
@@ -140,8 +139,8 @@ class Data_set():
         float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
             one_object = {'name': self.servis_list[0].strip(),
                   'address': self.servis_list[1].strip(),
-                  'ltt': float(self.servis_list[2].strip()),
-                  'lnt': float(self.servis_list[3].strip())}
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
         return one_object
 
 
@@ -154,8 +153,8 @@ class Data_set():
         float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
             one_object = {'name': self.servis_list[0].strip(),
                   'address': self.servis_list[1].strip(),
-                  'ltt': float(self.servis_list[2].strip()),
-                  'lnt': float(self.servis_list[3].strip())}
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
         return one_object
 
 
