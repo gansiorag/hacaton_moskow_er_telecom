@@ -8,7 +8,11 @@ Author Gansior A. mail - gansior@gansior.ru, tel - +79173383804
 from geopy import distance
 import math
 from pprint import pprint
-from app.work_with_data_set import Data_set
+try:
+    from app.work_with_data_set import Data_set
+except Exception:
+    from work_with_data_set import Data_set
+
 
 def proga():
     print(round(distance.GeodesicDistance([55.755,37.60176], [55.755,37.600]).m,0))
@@ -28,8 +32,8 @@ def get_array_borders_squere(hi_point = [55.7744, 37.580],  low_point = [55.7294
             #                                        hi_point[1]+0.0016*ll*koef_lend],
             #                                        [hi_point[0] + 0.0009 * (ww + 1)*koef_lend,
             #                                         hi_point[1] + 0.0016 * (ll+1)*koef_lend]).m, 0))
-            array_sqrt.append([[hi_point[0] - 0.0009*ww*koef_lend, hi_point[1] - 0.0016 * (ll + 1) * koef_lend],
-                              [hi_point[0] - 0.0009 * (ww + 1) * koef_lend, hi_point[1] - 0.0016*ll*koef_lend,]]
+            array_sqrt.append([[hi_point[0] - 0.0009*ww*koef_lend, hi_point[1] + 0.0016 * ll * koef_lend],
+                              [hi_point[0] - 0.0009 * (ww + 1) * koef_lend, hi_point[1] + 0.0016*(ll+1)*koef_lend,]]
                               )
     return kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt
 
@@ -180,20 +184,18 @@ class Work_with_One_pix():
         for type_obj in self.Base_array:
 
             kol_obj = 0
-            #print(type_obj)
+            print(type_obj)
             for obbj in self.Base_array[type_obj]:
-                if type_obj == 'food':
-                    print('sqrt 0  = ', sqrt[0][0], sqrt[0][1])
-                    print('sqrt 1  = ', sqrt[1][0], sqrt[1][1])
-                    print('obbj = ',obbj['ltt'],obbj['lnt'])
+                #if type_obj == 'food':
+                    # print('sqrt 0  = ', sqrt[0][0], sqrt[0][1])
+                    # print('sqrt 1  = ', sqrt[1][0], sqrt[1][1])
+                    # print('obbj = ',obbj['ltt'],obbj['lnt'])
 
-                #if kol_obj > 10: break
-                if (sqrt[0][0] >= obbj['ltt'] and
-                    sqrt[1][0] <= obbj['ltt'] and
-                    sqrt[0][1] <= obbj['lnt'] and
-                    sqrt[1][1] >= obbj['lnt']) :
-                    kol_obj += 1
-                    print('rez = '.obbj['lnt'],obbj['ltt'])
+                    #if kol_obj > 10: break
+                    if ((sqrt[0][0] >= obbj['ltt']) and (sqrt[1][0] <= obbj['ltt'])) and\
+                       ((sqrt[0][1] <= obbj['lnt']) and (sqrt[1][1] >= obbj['lnt'])) :
+                        kol_obj += 1
+                        #print('rez = ',obbj['lnt'],obbj['ltt'])
 
             array_obj.append(kol_obj)
         return array_obj
@@ -216,7 +218,7 @@ if __name__ == '__main__':
     lcc = (start_width + end_width)/2
     hi_point = [ start_width, start_long]
     low_point = [end_width, end_long]
-    leng_side = 500
+    leng_side = 1250
     param = {'coord_pix':[[pcc, lcc], hi_point,low_point]}
     main_reactange = One_pix(param)
     #pprint(main_reactange.array_objects_pix['food'])
@@ -235,5 +237,6 @@ if __name__ == '__main__':
     kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point=hi_point,
                                                                                     low_point=low_point,
                                                                                     leng_side=leng_side)
+    pprint(array_sqrt)
     work_array =  Work_with_One_pix(main_reactange.array_objects_pix, array_sqrt)
-    #pprint(work_array.array_data_sqrt)
+    pprint(work_array.array_data_sqrt)
