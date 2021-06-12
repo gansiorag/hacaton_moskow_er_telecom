@@ -38,8 +38,12 @@
 </style>
 
 <div>
-    <form action="">
+    <form name="form_auth" method="post">
         <ul>
+            <li>
+                <label for="name_user">Название организации</label>
+                <input id="name_user" name="USER_NAME" type="text">
+            </li>
             <li>
                 <label for="all_activities">Все виды деятельности объявленные при регистрации</label>
                 <input id="all_activities" type="text">
@@ -62,7 +66,7 @@
             </li>
             <li>
                 <label for="legal_address">Юридический адрес</label>
-                <input id="legal_address" type="text">
+                <input id="legal_address" name="USER_ADRESS" type="text">
             </li>
             <li>
                 <label for="boss">Руководитель</label>
@@ -87,6 +91,7 @@
                 <input id="authorized_capital" type="text">
             </li>
         </ul>
+        <input type="submit" name="ZarLogin" class="solid_button login_button" value="Записать" formaction="/legal_data" />
     </form>
 </div>
 
