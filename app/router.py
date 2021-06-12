@@ -4,53 +4,12 @@ This module make
 Author Gansior A. mail - gansior@gansior.ru tel - +79173383804
 """
 from flask import render_template
-
+from flask import request
 from app import app
-from app.servis_modules import get_array_borders_squere
+from app.servis_modules import get_array_borders_squere, get_end_coord_rectangle
 from app.servis_modules import One_pix
 from app.servis_modules import Work_with_One_pix
-
-@app.route("/mapss")
-def map():
-
-    # parameters for starts page
-    # this parameters base reсtangle jn map - coordinates highe of left angle and low of rigth angle
-
-    start_width = 55.7744
-    start_long = 37.580
-    end_width = 55.7294
-    end_long = 37.652
-    hi_point = [start_width, start_long]
-    low_point = [end_width, end_long]
-    zoom = 12 # start zoom
-
-    # this coordinates center rectangle
-    pcc = (start_long + end_long)/2
-    lcc = (start_width + end_width)/2
-    leng_side = 2500
-    param = {'coord_pix':[[pcc, lcc], hi_point,low_point]}
-    name_obj = ['theaters','food','intercepting_parking','paid_parking','closed_paid_parking',
-                'cinemas','circus','concert_halls','museums','education']
-    main_reactange = One_pix(param)
-    kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point=[start_width, start_long],
-                                                                                    low_point=[end_width, end_long],
-                                                                                    leng_side=leng_side)
-    work_array = Work_with_One_pix(main_reactange.array_objects_pix, array_sqrt)
-
-    return render_template('map_index.html',
-                           lcc=lcc,
-                           pcc=pcc,
-                           zoom=zoom,
-                           start_width=start_width,
-                           start_long=start_long,
-                           end_width=end_width,
-                           end_long=end_long,
-                           leng_side=leng_side,
-                           kol_sqrt_width=kol_sqrt_width,
-                           kol_sqrt_long=kol_sqrt_long,
-                           koef_lend=koef_lend
-                           )
-
+from app import session
 
 @app.route("/")
 def index():
@@ -58,9 +17,12 @@ def index():
     return render_template('/index.html', title=title)
 
 
-@app.route("/legal_data")
+@app.route("/legal_data", methods=['GET', 'POST'])
 def coord():
     title = "Юридические данные"
+    session['user']['name'] = request.values.get('USER_NAME')  # Your form's
+    session['user']['adress'] = request.values.get('USER_ADRESS') # input names
+    print(session['user']['name'], session['user']['adress'])
     return render_template('/legal_data.html', title=title)
 
 
@@ -90,33 +52,51 @@ def valuation_by_coords():
 
 @app.route("/search_by_heat_map")
 def search_by_heat_map():
-    # parameters for starts page
-    # this parameters base reсtangle jn map - coordinates highe of left angle and low of rigth angle
-
+    '''
+     parameters for starts page
+    this parameters base reсtangle jn map - coordinates highe of left angle and low of rigth angle
+    координаты садового кольца
     start_width = 55.7744
     start_long = 37.580
     end_width = 55.7294
     end_long = 37.652
 
-    zoom = 12  # start zoom
+    :return:
+    '''
+
+
+    start_width = 55.754311
+    start_long = 37.522732
+    end_width = 55.701605
+    end_long = 37.70619
+    hi_point = [start_width, start_long]
+    low_point = [end_width, end_long]
+    leng_side = 1250
+    low_point = get_end_coord_rectangle(hi_point, low_point, leng_side)
+    zoom = 11  # start zoom
 
     # this coordinates center rectangle
-    pcc = (start_long + end_long) / 2
-    lcc = (start_width + end_width) / 2
-    leng_side = 500
+    pcc = (start_long + low_point[1]) / 2
+    lcc = (start_width + low_point[0]) / 2
 
+    param = {'coord_pix': [[pcc, lcc], hi_point, low_point]}
+    name_obj = ['theaters', 'food', 'intercepting_parking', 'paid_parking', 'closed_paid_parking',
+                'cinemas', 'circus', 'concert_halls', 'museums', 'education']
+    main_reactange = One_pix(param)
     kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point=[start_width, start_long],
                                                                                     low_point=[end_width, end_long],
                                                                                     leng_side=leng_side)
+    print('kol_sqrt_width, kol_sqrt_long = ', kol_sqrt_width, kol_sqrt_long)
+    work_array = Work_with_One_pix(main_reactange.array_objects_pix)
 
-    return render_template('/search_by_heat_map.html',
+    return render_template('search_by_heat_map.html',
                            lcc=lcc,
                            pcc=pcc,
                            zoom=zoom,
                            start_width=start_width,
                            start_long=start_long,
-                           end_width=end_width,
-                           end_long=end_long,
+                           end_width=low_point[0],
+                           end_long=low_point[1],
                            leng_side=leng_side,
                            kol_sqrt_width=kol_sqrt_width,
                            kol_sqrt_long=kol_sqrt_long,

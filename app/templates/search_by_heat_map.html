@@ -34,7 +34,7 @@
                 {% block map %}
                     <td style="width: 50%;">
                         <div id="map" style="width: 100%; height: 600px;">
-                           <script type="text/javascript">
+                            <script type="text/javascript">
                                 let lcc={{lcc}};
                                 let pcc={{pcc}};
                                 let zz={{zoom}};
@@ -67,11 +67,11 @@
                                         zoom: zz
                                     });
 
-                                    var bounds = [[55.7744,37.580], [55.7294,37.66]];
+                                    var bounds = [[start_width,start_long], [end_width,end_long]];
                                     var ww, ll;
 
 
-                                    var bounds2 = [[55.770,37.640], [55.732,37.600]];
+                                    var bounds2 = [];
 
                                     for (ww=0; ww<kol_sqrt_width; ww++) {
                                         for (ll=0; ll<kol_sqrt_long; ll++){
