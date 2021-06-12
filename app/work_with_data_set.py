@@ -178,3 +178,263 @@ class Data_set():
                   'ltt': float(self.servis_list[2].strip())}
         return one_object
 
+    def atelier(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def bathing_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def comprehensive_domestic_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def dry_cleanings_dyeing(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def furniture_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def hairdressers(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def home_electronics_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def jewelry_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def laundries(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def metal_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def other_domestic_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def pawnshops(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def photo_studios(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def rental_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def ritual_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def saunas(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def self_service_dry_cleaners(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def self_service_laundries(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def shoe_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+
+    def watch_services(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'name': self.servis_list[0].strip(),
+                  'address': float(self.servis_list[1].strip()),
+                  'lnt': float(self.servis_list[2].strip()),
+                  'ltt': float(self.servis_list[3].strip())}
+        return one_object
+

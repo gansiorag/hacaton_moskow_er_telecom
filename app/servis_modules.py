@@ -157,7 +157,87 @@ class One_pix():
                                   'metro_exits': self.get_array_objects_from_file_data_set(self.hi_point_pix,
                                                                      self.low_point_pix,
                                                                      'metro_exits',
-                                                                     self.array_type_objects['metro_exits']['path'])
+                                                                     self.array_type_objects['metro_exits']['path']),
+                                  'domestic_services/atelier.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'atelier.csv',
+                                                                     self.array_type_objects['atelier.csv']['path']),
+                                  'domestic_services/bathing_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'bathing_services.csv',
+                                                                     self.array_type_objects['bathing_services.csv']['path']),
+                                  'domestic_services/comprehensive_domestic_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'comprehensive_domestic_services.csv',
+                                                                     self.array_type_objects['comprehensive_domestic_services.csv']['path']),
+                                  'domestic_services/dry_cleanings_dyeing.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'dry_cleanings_dyeing.csv',
+                                                                     self.array_type_objects['dry_cleanings_dyeing.csv']['path']),
+                                  'domestic_services/furniture_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'furniture_services.csv',
+                                                                     self.array_type_objects['furniture_services.csv']['path']),
+                                  'domestic_services/hairdressers.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'hairdressers.csv',
+                                                                     self.array_type_objects['hairdressers.csv']['path']),
+                                  'domestic_services/home_electronics_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'home_electronics_services.csv',
+                                                                     self.array_type_objects['home_electronics_services.csv']['path']),
+                                  'domestic_services/jewelry_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'jewelry_services.csv',
+                                                                     self.array_type_objects['jewelry_services.csv']['path']),
+                                  'domestic_services/laundries.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'laundries.csv',
+                                                                     self.array_type_objects['laundries.csv']['path']),
+                                  'domestic_services/metal_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'metal_services.csv',
+                                                                     self.array_type_objects['metal_services.csv']['path']),
+                                  'domestic_services/other_domestic_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'other_domestic_services.csv',
+                                                                     self.array_type_objects['other_domestic_services.csv']['path']),
+                                  'domestic_services/pawnshops.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'pawnshops.csv',
+                                                                     self.array_type_objects['pawnshops.csv']['path']),
+                                  'domestic_services/photo_studios.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'photo_studios.csv',
+                                                                     self.array_type_objects['photo_studios.csv']['path']),
+                                  'domestic_services/rental_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'rental_services.csv',
+                                                                     self.array_type_objects['rental_services.csv']['path']),
+                                  'domestic_services/ritual_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'ritual_services.csv',
+                                                                     self.array_type_objects['ritual_services.csv']['path']),
+                                  'domestic_services/saunas.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'saunas.csv',
+                                                                     self.array_type_objects['saunas.csv']['path']),
+                                  'domestic_services/self_service_dry_cleaners.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'self_service_dry_cleaners.csv',
+                                                                     self.array_type_objects['self_service_dry_cleaners.csv']['path']),
+                                  'domestic_services/self_service_laundries.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'self_service_laundries.csv',
+                                                                     self.array_type_objects['self_service_laundries.csv']['path']),
+                                  'domestic_services/shoe_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'shoe_services.csv',
+                                                                     self.array_type_objects['shoe_services.csv']['path']),
+                                  'domestic_services/watch_services.csv': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'watch_services.csv',
+                                                                     self.array_type_objects['watch_services.csv']['path'])
                                   }
 
 
@@ -212,6 +292,66 @@ class One_pix():
                     if ddd: array_def.append(ddd)
                 if name_array =='metro_exits':
                     ddd = analiz.metro_exits()
+                    if ddd: array_def.append(ddd)
+                if name_array =='atelier':
+                    ddd = analiz.atelier()
+                    if ddd: array_def.append(ddd)
+                if name_array =='bathing_services':
+                    ddd = analiz.bathing_services()
+                    if ddd: array_def.append(ddd)
+                if name_array =='comprehensive_domestic_services':
+                    ddd = analiz.comprehensive_domestic_services()
+                    if ddd: array_def.append(ddd)
+                if name_array =='dry_cleanings_dyeing':
+                    ddd = analiz.dry_cleanings_dyeing()
+                    if ddd: array_def.append(ddd)
+                if name_array =='furniture_services':
+                    ddd = analiz.furniture_services()
+                    if ddd: array_def.append(ddd)
+                if name_array =='hairdressers':
+                    ddd = analiz.hairdressers()
+                    if ddd: array_def.append(ddd)
+                if name_array =='home_electronics_services':
+                    ddd = analiz.home_electronics_services()
+                    if ddd: array_def.append(ddd)
+                if name_array =='jewelry_services':
+                    ddd = analiz.jewelry_services()
+                    if ddd: array_def.append(ddd)
+                if name_array =='laundries':
+                    ddd = analiz.laundries()
+                    if ddd: array_def.append(ddd)
+                if name_array =='metal_services':
+                    ddd = analiz.metal_services()
+                    if ddd: array_def.append(ddd)
+                if name_array =='other_domestic_services':
+                    ddd = analiz.other_domestic_services()
+                    if ddd: array_def.append(ddd)
+                if name_array =='pawnshops':
+                    ddd = analiz.pawnshops()
+                    if ddd: array_def.append(ddd)
+                if name_array =='photo_studios':
+                    ddd = analiz.photo_studios()
+                    if ddd: array_def.append(ddd)
+                if name_array =='rental_services':
+                    ddd = analiz.rental_services()
+                    if ddd: array_def.append(ddd)
+                if name_array =='ritual_services':
+                    ddd = analiz.ritual_services()
+                    if ddd: array_def.append(ddd)
+                if name_array =='saunas':
+                    ddd = analiz.saunas()
+                    if ddd: array_def.append(ddd)
+                if name_array =='self_service_dry_cleaners':
+                    ddd = analiz.self_service_dry_cleaners()
+                    if ddd: array_def.append(ddd)
+                if name_array =='self_service_laundries':
+                    ddd = analiz.self_service_laundries()
+                    if ddd: array_def.append(ddd)
+                if name_array =='shoe_services':
+                    ddd = analiz.shoe_services()
+                    if ddd: array_def.append(ddd)
+                if name_array =='watch_services':
+                    ddd = analiz.watch_services()
                     if ddd: array_def.append(ddd)
         return array_def
 
