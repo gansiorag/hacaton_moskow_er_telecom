@@ -38,25 +38,26 @@
 </style>
 
 <div>
-    <form action="">
+    <form name="form_auth" method="post">
         <ul>
             <li>
                 <label for="employees">Количество сотрудников</label>
-                <input id="employees" type="text">
+                <input id="employees" name="EMPLOYEES" type="text">
             </li>
             <li>
                 <label for="affiliate">Количество филиалов</label>
-                <input id="affiliate" type="text">
+                <input id="affiliate" name="AFFILIATE" type="text">
             </li>
             <li>
                 <label for="records_from_tax_office">Все показатели с налоговой по ИНН</label>
-                <input id="legal_address" type="text">
+                <input id="records_from_tax_office" name="RECORDS_FROM_TAX_OFFICE" type="text">
             </li>
             <li>
                 <label for="fair_business_data">Данные с сайта за честный бизнес</label>
-                <input id="boss" type="text">
+                <input id="fair_business_data" name="FAIR_BUSINESS_DATA" type="text">
             </li>
         </ul>
+        <input type="submit" name="ZarLogin" class="solid_button login_button" value="Записать" formaction="/fin_data" />
     </form>
 </div>
 
