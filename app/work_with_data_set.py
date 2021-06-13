@@ -441,6 +441,20 @@ class Data_set():
                           'ltt': float(self.servis_list[4].strip())}
         return one_object
 
+    def builds(self) -> dict:
+        one_object = {}
+        #print(float(self.servis_list[2].strip()))
+        if (float(self.servis_list[-1].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[-1].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[-2].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[-2].strip()) <= self.low_point_pix[1]) :
+            one_object = {'type': self.servis_list[0].strip(),
+                          'address': self.servis_list[2].strip(),
+                          'cadastral_number': self.servis_list[3].strip(),
+                          'lnt': float(self.servis_list[4].strip()),
+                          'ltt': float(self.servis_list[5].strip())}
+        return one_object
+
     def data_wifi(self) -> dict:
         one_object = {'nabor':[],
                                     'kol_point_wifi':0.0,

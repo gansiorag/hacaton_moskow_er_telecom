@@ -7,7 +7,7 @@ from flask import render_template
 from flask import request
 from app import app
 from app.servis_modules import get_array_borders_squere, get_end_coord_rectangle
-from app.servis_modules import One_pix
+from app.class_Onix import One_pix
 from app.servis_modules import Work_with_One_pix
 from app import session
 
