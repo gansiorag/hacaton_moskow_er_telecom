@@ -213,9 +213,9 @@ def setting_signal_points():
 @app.route("/buisness_state_at_the_moment")
 def buisness_state_at_the_moment():
     title = "Состояние бизнеса на текущий момент"
-    data_user = [{'date': list(range(1, 31)), 'data': [random.randint(1, 30) for i in range(1, 31)],
-                  'data_max_power': [random.randint(1, 30) for i in range(1, 31)],
-                  'data_qv75': [random.randint(1, 30) for i in range(1, 31)]}]
+    data_user = [{'date': list(range(1, 31)), 'data': [random.randint(1, 30) for i in range(0, 31)],
+                  'data_max_power': [random.randint(1, 30) for i in range(0, 31)],
+                  'data_qv75': [random.randint(1, 30) for i in range(0, 31)]}]
     print(data_user)
     return render_template('/buisness_state_at_the_moment.html', title=title, data_user=data_user)
 
@@ -223,8 +223,9 @@ def buisness_state_at_the_moment():
 @app.route("/buisness_state_and_rivalry")
 def buisness_state_and_rivalry():
     title = "Состояние бизнеса и конкуренты"
-    data_user = [{'date': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'data': [5, 2, 3, 4, 3, 6, 7, 8, 9, 10],
-                  'data_max_power': [1, 2, 2, 4, 5, 6, 5, 30, 9, 10], 'data_qv75': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}]
+    data_user = [{'date': list(range(1, 31)), 'data': [random.randint(1, 30) for i in range(0, 31)],
+                  'data_max_power': [random.randint(1, 30) for i in range(0, 31)],
+                  'data_qv75': [random.randint(1, 30) for i in range(0, 31)]}]
     return render_template('/buisness_state_and_rivalry.html', title=title, data_user=data_user)
 
 
