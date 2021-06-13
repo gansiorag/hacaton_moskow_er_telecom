@@ -150,6 +150,7 @@ def search_by_heat_map():
 
     :return:
     '''
+
     if request.method == 'POST':
         print(request.form.getlist('type_obj'))
 
