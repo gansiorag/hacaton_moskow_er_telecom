@@ -2,21 +2,20 @@
 
 {% block work_area%}
 <style type="text/css">
-    form {
-      margin: 50px auto;
-      width: 400px;
+    .form {
+        margin: 0 auto;
       padding: 1em;
-      border: 1px solid #CCC;
-      border-radius: 1em;
+      border:1px solid #000000;
+        width: 950px;
     }
 
-    ul {
+    .form ul {
+        margin: 0 20px;
       list-style: none;
-      padding: 0;
-      margin: 0;
+      padding: 20px 0;
     }
 
-    form li + li {
+    .form li + li {
       margin-top: 1em;
     }
 
@@ -27,9 +26,15 @@
 
     input {
       font: 1em sans-serif;
-      width: 300px;
+      width: 200px;
       box-sizing: border-box;
       border: 1px solid #999;
+        padding: 5px;
+    }
+
+    .solid_button {
+        width: 100%;
+        margin-top: 11px;
     }
 
     input:focus {
@@ -38,7 +43,10 @@
 </style>
 
 <div>
-    <form name="form_auth" method="post">
+    <div>
+	    <h2 class="text-center">{{title}}</h2> <br>
+    </div>
+    <form class="form" name="form_auth" method="post" style="display: flex">
         <ul>
             <li>
                 <label for="name_user">Название организации</label>
@@ -64,6 +72,8 @@
                 <label for="activity">Вид деятельности</label>
                 <input id="activity" name="ACTIVITY" type="text">
             </li>
+        </ul>
+        <ul>
             <li>
                 <label for="legal_address">Юридический адрес</label>
                 <input id="legal_address" name="USER_ADRESS" type="text">
@@ -72,26 +82,24 @@
                 <label for="boss">Руководитель</label>
                 <input id="boss" name="BOSS" type="text">
             </li>
-            <ul>
-                <li>
-                    <label for="sex">Пол</label>
-                    <input id="sex" name="SEX" type="text">
-                </li>
-                <li>
-                    <label for="age">Возраст</label>
-                    <input id="age" name="AGE" type="text">
-                </li>
-                <li>
-                    <label for="education">Образование</label>
-                    <input id="education" name="EDUCATION" type="text">
-                </li>
-            </ul>
+            <li>
+                <label for="sex">Пол</label>
+                <input id="sex" name="SEX" type="text">
+            </li>
+            <li>
+                <label for="age">Возраст</label>
+                <input id="age" name="AGE" type="text">
+            </li>
+            <li>
+                <label for="education">Образование</label>
+                <input id="education" name="EDUCATION" type="text">
+            </li>
             <li>
                 <label for="authorized_capital">Уставной капитал</label>
                 <input id="authorized_capital" name="AUTHORIZED_CAPITAL" type="text">
             </li>
+            <input type="submit" name="ZarLogin" class="solid_button login_button" value="Записать" formaction="/legal_data" />
         </ul>
-        <input type="submit" name="ZarLogin" class="solid_button login_button" value="Записать" formaction="/legal_data" />
     </form>
 </div>
 
