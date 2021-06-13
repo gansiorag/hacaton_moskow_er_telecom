@@ -137,7 +137,7 @@ def valuation_by_coords():
                            koef_lend=koef_lend
                            )
 
-@app.route("/search_by_heat_map")
+@app.route("/search_by_heat_map",methods=['GET', 'POST'])
 def search_by_heat_map():
     '''
      parameters for starts page
@@ -150,7 +150,8 @@ def search_by_heat_map():
 
     :return:
     '''
-
+    if request.method == 'POST':
+        print(request.form.getlist('type_obj'))
 
     start_width = 55.754311
     start_long = 37.522732
