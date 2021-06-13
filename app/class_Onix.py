@@ -86,6 +86,8 @@ class One_pix():
                                          'sep':';'},
                                  'data_wifi': {'path': path + 'data_set/data_day_2021_03_20.csv',
                                                     'sep': '^'},
+                                 'builds': {'path': path + 'data_set/builds.csv',
+                                                    'sep': '^'},
                                  }
         self.array_objects_pix = {'theaters': self.get_array_objects_from_file_data_set(self.hi_point_pix,
                                                                      self.low_point_pix,
@@ -224,92 +226,98 @@ class One_pix():
                                                                                               'data_wifi',
                                                                                               self.array_type_objects[
                                                                                                   'data_wifi'][
-                                                                                                  'path'])
+                                                                                                  'path']),
+                                  'builds': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                     self.low_point_pix,
+                                                                     'builds',
+                                                                     self.array_type_objects['builds']['path'])
                                   }
 
-
-    def get_array_objects_from_file_data_set(self, hi_point = [55.7744, 37.580],
-                          low_point = [55.7294, 37.652],
-                          name_array = 'nonsens',
-                          name_files = 'lll.csv') -> list:
+    def get_array_objects_from_file_data_set(self, hi_point=[55.7744, 37.580],
+                                             low_point=[55.7294, 37.652],
+                                             name_array='nonsens',
+                                             name_files='lll.csv') -> list:
         array_def = []
         if name_array != 'data_wifi':
             with open(name_files, 'r', encoding='utf-8') as is_f:
                 k = 0
                 for line in is_f:
                     k += 1
-                    ddd =''
+                    ddd = ''
                     analiz = Data_set(line,
-                        self.array_type_objects[name_array]['sep'],
-                        self.hi_point_pix,
-                        self.low_point_pix, name_files)
-                    if name_array =='theaters' : ddd = analiz.theatres()
+                                      self.array_type_objects[name_array]['sep'],
+                                      self.hi_point_pix,
+                                      self.low_point_pix, name_files)
+                    if name_array == 'theaters': ddd = analiz.theatres()
 
-                    if name_array =='food' and k!= 1: ddd = analiz.food()
+                    if name_array == 'food' and k != 1: ddd = analiz.food()
 
-                    if name_array =='intercepting_parking': ddd = analiz.intercepting_parking()
+                    if name_array == 'intercepting_parking': ddd = analiz.intercepting_parking()
 
-                    if name_array =='paid_parking': ddd = analiz.paid_parking()
+                    if name_array == 'paid_parking': ddd = analiz.paid_parking()
 
-                    if name_array =='closed_paid_parking': ddd = analiz.closed_paid_parking()
+                    if name_array == 'closed_paid_parking': ddd = analiz.closed_paid_parking()
 
-                    if name_array =='cinemas': ddd = analiz.cinemas()
+                    if name_array == 'cinemas': ddd = analiz.cinemas()
 
-                    if name_array =='circus': ddd = analiz.circus()
+                    if name_array == 'circus': ddd = analiz.circus()
 
-                    if name_array =='concert_halls': ddd = analiz.concert_halls()
+                    if name_array == 'concert_halls': ddd = analiz.concert_halls()
 
-                    if name_array =='museums': ddd = analiz.museums()
+                    if name_array == 'museums': ddd = analiz.museums()
 
-                    if name_array =='monuments': ddd = analiz.monuments()
+                    if name_array == 'monuments': ddd = analiz.monuments()
 
-                    if name_array =='education': ddd = analiz.education()
+                    if name_array == 'education': ddd = analiz.education()
 
-                    if name_array =='parks': ddd = analiz.parks()
+                    if name_array == 'parks': ddd = analiz.parks()
 
-                    if name_array =='metro_exits': ddd = analiz.metro_exits()
+                    if name_array == 'metro_exits': ddd = analiz.metro_exits()
 
-                    if name_array =='atelier': ddd = analiz.atelier()
+                    if name_array == 'atelier': ddd = analiz.atelier()
 
-                    if name_array =='bathing_services': ddd = analiz.bathing_services()
+                    if name_array == 'bathing_services': ddd = analiz.bathing_services()
 
-                    if name_array =='comprehensive_domestic_services': ddd = analiz.comprehensive_domestic_services()
+                    if name_array == 'comprehensive_domestic_services': ddd = analiz.comprehensive_domestic_services()
 
-                    if name_array =='dry_cleanings_dyeing': ddd = analiz.dry_cleanings_dyeing()
+                    if name_array == 'dry_cleanings_dyeing': ddd = analiz.dry_cleanings_dyeing()
 
-                    if name_array =='furniture_services': ddd = analiz.furniture_services()
+                    if name_array == 'furniture_services': ddd = analiz.furniture_services()
 
-                    if name_array =='hairdressers': ddd = analiz.hairdressers()
+                    if name_array == 'hairdressers': ddd = analiz.hairdressers()
 
-                    if name_array =='home_electronics_services': ddd = analiz.home_electronics_services()
+                    if name_array == 'home_electronics_services': ddd = analiz.home_electronics_services()
 
-                    if name_array =='jewelry_services': ddd = analiz.jewelry_services()
+                    if name_array == 'jewelry_services': ddd = analiz.jewelry_services()
 
-                    if name_array =='laundries': ddd = analiz.laundries()
+                    if name_array == 'laundries': ddd = analiz.laundries()
 
-                    if name_array =='metal_services': ddd = analiz.metal_services()
+                    if name_array == 'metal_services': ddd = analiz.metal_services()
 
-                    if name_array =='other_domestic_services': ddd = analiz.other_domestic_services()
+                    if name_array == 'other_domestic_services': ddd = analiz.other_domestic_services()
 
-                    if name_array =='pawnshops': ddd = analiz.pawnshops()
+                    if name_array == 'pawnshops': ddd = analiz.pawnshops()
 
-                    if name_array =='photo_studios': ddd = analiz.photo_studios()
+                    if name_array == 'photo_studios': ddd = analiz.photo_studios()
 
-                    if name_array =='rental_services': ddd = analiz.rental_services()
+                    if name_array == 'rental_services': ddd = analiz.rental_services()
 
-                    if name_array =='ritual_services': ddd = analiz.ritual_services()
+                    if name_array == 'ritual_services': ddd = analiz.ritual_services()
 
-                    if name_array =='saunas': ddd = analiz.saunas()
+                    if name_array == 'saunas': ddd = analiz.saunas()
 
-                    if name_array =='self_service_dry_cleaners': ddd = analiz.self_service_dry_cleaners()
+                    if name_array == 'self_service_dry_cleaners': ddd = analiz.self_service_dry_cleaners()
 
-                    if name_array =='self_service_laundries': ddd = analiz.self_service_laundries()
+                    if name_array == 'self_service_laundries': ddd = analiz.self_service_laundries()
 
-                    if name_array =='shoe_services': ddd = analiz.shoe_services()
+                    if name_array == 'shoe_services': ddd = analiz.shoe_services()
 
-                    if name_array =='watch_services': ddd = analiz.watch_services()
-                    if ddd : array_def.append(ddd)
-        if name_array =='data_wifi':
+                    if name_array == 'watch_services': ddd = analiz.watch_services()
+
+                    if name_array == 'builds': ddd = analiz.builds()
+
+                    if ddd: array_def.append(ddd)
+        if name_array == 'data_wifi':
             analiz = Data_set('line',
                               self.array_type_objects[name_array]['sep'],
                               self.hi_point_pix,
