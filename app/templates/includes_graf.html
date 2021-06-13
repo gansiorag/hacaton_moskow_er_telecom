@@ -1,39 +1,39 @@
 <div style="display: flex; flex-direction: row;">
     <div id="graf_potr_1">
-    </div>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);potr
-        var dataisjs = [];
+         <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);potr
+      var dataisjs = [];
 
-        function drawChart() {
+      function drawChart() {
 
-            var data_mass =[]
-            data_mass.push(['Дата', 'Потр. по часам','Заяв. мощ.', 'Квант. 75'])
-            {% set i = 0 %}
-            {% for itok in data_user[0]['date'] %}
-                data_mass.push(['{{data_user[0]['date'][i]}}',
-                    {{data_user[0]['data'][i]}},
-                    {{data_user[0]['data_max_power'][i]}},
-                    {{data_user[0]['data_qv75'][i]}}
-                ])
-                {{i}}
-                {% set i = i + 1 %}
-            {% endfor %}
-            console.log(data_mass)
-            var data = google.visualization.arrayToDataTable(data_mass);
+        var data_mass =[]
+        data_mass.push(['Дата', 'Потр. по часам','Заяв. мощ.', 'Квант. 75'])
+        {% set i=0 %}
+        {% for itok in data_user[0]['date'] %}
+            data_mass.push(['{{data_user[0]['date'][i]}}',
+                             {{data_user[0]['data'][i]}},
+                             {{data_user[0]['data_max_power'][i]}},
+                             {{data_user[0]['data_qv75'][i]}}
+                             ])
+            {{i}}
+            {% set i = i+1 %}
+         {% endfor%}
 
-            var options = {
-                title: 'График пешеходного трафика по часам',
-                curveType: 'function',
-                legend: { position: 'bottom' }
-            };
+        var data = google.visualization.arrayToDataTable(data_mass);
 
-            var chart = new google.visualization.LineChart(document.getElementById('graf_potr_1'));
+        var options = {
+          title: 'График пешеходного трафика по часам',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
 
-            chart.draw(data, options);
-        }
+        var chart = new google.visualization.LineChart(document.getElementById('graf_potr_1'));
+
+        chart.draw(data, options);
+      }
     </script>
+    </div>
     <div id="graf_potr_2">
         <script type="text/javascript">
           google.charts.load('current', {'packages':['corechart']});
@@ -44,7 +44,7 @@
 
             var data_mass =[]
             data_mass.push(['Дата', 'Потр. по часам','Заяв. мощ.', 'Квант. 75'])
-            {% set i = 0 %}
+            {% set i=0 %}
             {% for itok in data_user[0]['date'] %}
                 data_mass.push(['{{data_user[0]['date'][i]}}',
                                  {{data_user[0]['data'][i]}},
@@ -52,8 +52,8 @@
                                  {{data_user[0]['data_qv75'][i]}}
                                  ])
                 {{i}}
-                {% set i = i + 1 %}
-             {% endfor %}
+                {% set i = i+1 %}
+             {% endfor%}
 
             var data = google.visualization.arrayToDataTable(data_mass);
 

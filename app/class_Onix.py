@@ -86,8 +86,6 @@ class One_pix():
                                          'sep':';'},
                                  'data_wifi': {'path': path + 'data_set/data_day_2021_03_20.csv',
                                                     'sep': '^'},
-                                 'builds': {'path': path + 'data_set/builds.csv',
-                                                    'sep': '^'},
                                  }
         self.array_objects_pix = {'theaters': self.get_array_objects_from_file_data_set(self.hi_point_pix,
                                                                      self.low_point_pix,
@@ -222,13 +220,11 @@ class One_pix():
                                                                      'watch_services',
                                                                      self.array_type_objects['watch_services']['path']),
                                   'data_wifi': self.get_array_objects_from_file_data_set(self.hi_point_pix,
-                                                                     self.low_point_pix,
-                                                                     'data_wifi',
-                                                                     self.array_type_objects['data_wifi']['path']),
-                                  'builds': self.get_array_objects_from_file_data_set(self.hi_point_pix,
-                                                                     self.low_point_pix,
-                                                                     'builds',
-                                                                     self.array_type_objects['builds']['path'])
+                                                                                              self.low_point_pix,
+                                                                                              'data_wifi',
+                                                                                              self.array_type_objects[
+                                                                                                  'data_wifi'][
+                                                                                                  'path'])
                                   }
 
 
@@ -236,9 +232,8 @@ class One_pix():
                           low_point = [55.7294, 37.652],
                           name_array = 'nonsens',
                           name_files = 'lll.csv') -> list:
-        array_def = {}
+        array_def = []
         if name_array != 'data_wifi':
-            array_def[name_array] = []
             with open(name_files, 'r', encoding='utf-8') as is_f:
                 k = 0
                 for line in is_f:
@@ -313,17 +308,14 @@ class One_pix():
                     if name_array =='shoe_services': ddd = analiz.shoe_services()
 
                     if name_array =='watch_services': ddd = analiz.watch_services()
-
-                    if name_array =='builds': ddd = analiz.builds()
-
-                    if ddd : array_def[name_array].append(ddd)
+                    if ddd : array_def.append(ddd)
         if name_array =='data_wifi':
             analiz = Data_set('line',
                               self.array_type_objects[name_array]['sep'],
                               self.hi_point_pix,
                               self.low_point_pix, name_files)
             ddd = analiz.data_wifi()
-            if ddd: array_def['data_wifi'] = ddd
+            if ddd: array_def.append(ddd)
         return array_def
 
 # test classes

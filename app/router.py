@@ -10,7 +10,6 @@ from app.servis_modules import get_array_borders_squere, get_end_coord_rectangle
 from app.class_Onix import One_pix
 from app.servis_modules import Work_with_One_pix
 from app import session
-import random
 
 @app.route("/")
 def index():
@@ -64,7 +63,7 @@ def valuation_by_address():
     low_point = [end_width, end_long]
     leng_side = 1250
     low_point = get_end_coord_rectangle(hi_point, low_point, leng_side)
-    zoom = 11  # start zoom
+    zoom = 10  # start zoom
 
     # this coordinates center rectangle
     pcc = (start_long + low_point[1]) / 2
@@ -106,7 +105,7 @@ def valuation_by_coords():
     low_point = [end_width, end_long]
     leng_side = 1250
     low_point = get_end_coord_rectangle(hi_point, low_point, leng_side)
-    zoom = 11  # start zoom
+    zoom = 10 # start zoom
 
     # this coordinates center rectangle
     pcc = (start_long + low_point[1]) / 2
@@ -161,7 +160,7 @@ def search_by_heat_map():
     low_point = [end_width, end_long]
     leng_side = 1250
     low_point = get_end_coord_rectangle(hi_point, low_point, leng_side)
-    zoom = 11  # start zoom
+    zoom = 10  # start zoom
 
     # this coordinates center rectangle
     pcc = (start_long + low_point[1]) / 2
@@ -213,8 +212,7 @@ def setting_signal_points():
 @app.route("/buisness_state_at_the_moment")
 def buisness_state_at_the_moment():
     title = "Состояние бизнеса на текущий момент"
-    data_user = [{'date': list(range(1, 31)), 'data': [random.randint(1, 30) for i in range(1, 31)], 'data_max_power': [random.randint(1, 30) for i in range(1, 31)], 'data_qv75': [random.randint(1, 30) for i in range(1, 31)]}]
-    print(data_user)
+    data_user = [{'date': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'data': [5, 2, 3, 4, 3, 6, 7, 8, 9, 10], 'data_max_power': [1, 2, 2, 4, 5, 6, 5, 30, 9, 10], 'data_qv75': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}]
     return render_template('/buisness_state_at_the_moment.html', title=title, data_user=data_user)
 
 
