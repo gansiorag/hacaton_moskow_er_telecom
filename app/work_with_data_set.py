@@ -1,8 +1,11 @@
+import pandas as pd
+
 class Data_set():
-    def __init__(self, line, sep, hi_point, low_point):
+    def __init__(self, line, sep, hi_point, low_point, name_files):
         self.hi_point_pix = hi_point
         self.low_point_pix = low_point
         self.servis_list = line.strip().split(sep)
+        self.name_files = name_files
 
     def theatres(self) -> dict:
         one_object = {}
@@ -437,4 +440,36 @@ class Data_set():
                           'lnt': float(self.servis_list[3].strip()),
                           'ltt': float(self.servis_list[4].strip())}
         return one_object
+
+    def data_wifi(self) -> dict:
+        one_object = {'nabor':[],
+                                    'kol_point_wifi':0.0,
+                                    'kol_devices':0.0,
+                                    'kol_events':0.0,
+                                    'ind_aktiv':0.0}
+        servis_list_event = []
+        servis_list_camers = []
+        servis_list_device = []
+        #print(float(self.servis_list[2].strip()))
+        data_day_20 = pd.read_csv(self.name_files, header = 0, sep = '^')
+        servis_data = data_day_20.loc[(data_day_20['ltt'].astype(float) <= self.hi_point_pix[0]) &
+                                      (data_day_20['ltt'].astype(float) >= self.low_point_pix[0]) &
+                                      (data_day_20['lnt'].astype(float) >= self.hi_point_pix[1]) &
+                                      (data_day_20['lnt'].astype(float) <= self.low_point_pix[1])]
+        one_object['nabor'] = servis_data
+        one_object['kol_point_wifi'] = len(servis_data['ap_mac'].unique())
+        one_object['kol_devices'] = len(servis_data['device_id'].unique())
+        one_object['kol_events'] =len(servis_data['ltt'])
+        if (one_object['kol_point_wifi']>0 and
+            one_object['kol_devices']>0) :
+                one_object['ind_aktiv'] = round(one_object['kol_events']/
+                                                                (one_object['kol_point_wifi']*
+                                                                 one_object['kol_devices']), 3)
+        print(one_object['kol_point_wifi'])
+        print(one_object['kol_devices'])
+        print(one_object['kol_events'])
+        print(one_object['ind_aktiv'])
+        return one_object
+
+
 
