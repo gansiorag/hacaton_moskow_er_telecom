@@ -25,10 +25,10 @@ def get_end_coord_rectangle(hi_point = [55.7744, 37.580],  low_point = [55.7294,
 
     # рассчет широты нижней точки
     high = round(distance.GeodesicDistance([hi_point[0], 0], [low_point[0], 0]).m, 0)
-    print('high = ', high)
-    print('leng_side = ', leng_side)
+    # print('high = ', high)
+    # print('leng_side = ', leng_side)
     koef_high_m = int(high/leng_side)
-    print('koef_high_m =', koef_high_m)
+    #print('koef_high_m =', koef_high_m)
     new_high = koef_high_m*leng_side
     end_high = 0.0
     if new_high<high : koef_high_m = koef_high_m + 1
@@ -37,16 +37,16 @@ def get_end_coord_rectangle(hi_point = [55.7744, 37.580],  low_point = [55.7294,
 
     # рассчет долготы нижней точки
     long = round(distance.GeodesicDistance([0, hi_point[1]], [0, low_point[1]]).m, 0)
-    print('long = ', long)
+    #print('long = ', long)
     koef_long_m = int(long / (leng_side*1.6))
-    print('koef_long_m = ',koef_long_m)
+    #print('koef_long_m = ',koef_long_m)
     new_long = koef_long_m * leng_side
     end_long = 0.0
     if new_long < long: koef_long_m = koef_long_m + 1
     koef_long = koef_long_m*leng_side / 100
     end_long_coordinate = hi_point[1] + 0.0016 * koef_long
 
-    print(end_with_coordinate, end_long_coordinate)
+    #print(end_with_coordinate, end_long_coordinate)
     return [end_with_coordinate, end_long_coordinate]
 
 def get_array_borders_squere(hi_point = [55.7744, 37.580],  low_point = [55.7294, 37.652], leng_side = 100):
@@ -186,8 +186,10 @@ if __name__ == '__main__':
     print(kol_sqrt_width, kol_sqrt_long)
     work_array =  Work_with_One_pix(main_reactange.array_objects_pix)
     rezult = work_array.divide_data_sqrt(array_sqrt)
-    """atelier': 18,
+    """
+    atelier': 18,
   'bathing_services': 0,
+  'builts'
   'cinemas': 1,
   'circus': 0,
   'closed_paid_parking': 0,
@@ -220,7 +222,7 @@ if __name__ == '__main__':
   'theaters': 6,
   'watch_services': 6"""
     for dd in rezult:
-        pprint(dd)
+        pprint(dd['hairdressers'])
         #print(dd['comprehensive_domestic_services'])
     #pprint(work_array.divide_data_sqrt(array_sqrt))
 
