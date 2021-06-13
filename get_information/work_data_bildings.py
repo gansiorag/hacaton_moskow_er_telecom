@@ -28,7 +28,7 @@ if __name__ == '__main__':
         ltt = ''
         if '"geoData":{"coordinates":[[[' in line:
             lnt = line.split('"geoData":{"coordinates":[[[')[1].split(',')[0]
-            ltt = line.split('"geoData":{"coordinates":[[[')[1].split(',')[1].split('],[')[0]
+            ltt = line.split('"geoData":{"coordinates":[[[')[1].split(',')[1].split('],[')[0].replace(']','')
             if '"OBJ_TYPE":"' in line :
                 type_obj = line.split('"OBJ_TYPE":"')[1].split('","')[0]
             if '"ADDRESS":"' in line:
