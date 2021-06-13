@@ -220,7 +220,7 @@ if __name__ == '__main__':
   'theaters': 6,
   'watch_services': 6"""
     for dd in rezult:
-        pprint(dd)
+        pprint(dd['builds'])
         #print(dd['comprehensive_domestic_services'])
     #pprint(work_array.divide_data_sqrt(array_sqrt))
 

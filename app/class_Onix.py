@@ -84,6 +84,8 @@ class One_pix():
                                          'sep':';'},
                                  'watch_services': {'path': path + 'data_set/domestic_services/watch_services.csv',
                                          'sep':';'},
+                                 'builds': {'path': path + 'data_set/builds.csv',
+                                                    'sep': '^'},
                                  'data_wifi': {'path': path + 'data_set/data_day_2021_03_20.csv',
                                                     'sep': '^'},
                                  }
@@ -95,6 +97,11 @@ class One_pix():
                                                                      self.low_point_pix,
                                                                      'food',
                                                                      self.array_type_objects['food']['path']),
+                                  'builds': self.get_array_objects_from_file_data_set(self.hi_point_pix,
+                                                                                    self.low_point_pix,
+                                                                                    'builds',
+                                                                                    self.array_type_objects['builds'][
+                                                                                        'path']),
                                   'intercepting_parking': self.get_array_objects_from_file_data_set(self.hi_point_pix,
                                                                      self.low_point_pix,
                                                                      'intercepting_parking',

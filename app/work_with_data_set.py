@@ -36,6 +36,21 @@ class Data_set():
                 'lnt': float(self.servis_list[-2].strip())}
         return one_object
 
+    def builds(self) -> dict:
+        one_object = {}
+        print(float(self.servis_list[4].strip()))
+        if (float(self.servis_list[4].strip()) <= self.hi_point_pix[0] and
+        float(self.servis_list[4].strip()) >= self.low_point_pix[0] and
+        float(self.servis_list[3].strip()) >= self.hi_point_pix[1] and
+        float(self.servis_list[3].strip()) <= self.low_point_pix[1]) :
+            one_object = {
+                'type_vid': self.servis_list[0].strip(),
+                'adress':self.servis_list[1].strip(),
+                'kad_n':self.servis_list[2].strip(),
+                'ltt': float(self.servis_list[4].strip()),
+                'lnt': float(self.servis_list[3].strip())}
+        return one_object
+
     def intercepting_parking(self) -> dict:
         one_object = {}
         #print(float(self.servis_list[2].strip()))
