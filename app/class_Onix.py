@@ -86,7 +86,7 @@ class One_pix():
                                          'sep':';'},
                                  'data_wifi': {'path': path + 'data_set/data_day_2021_03_20.csv',
                                                     'sep': '^'},
-                                 'builds': {'path': path + 'data_set/buildscsv',
+                                 'builds': {'path': path + 'data_set/builds.csv',
                                                     'sep': '^'},
                                  }
         self.array_objects_pix = {'theaters': self.get_array_objects_from_file_data_set(self.hi_point_pix,

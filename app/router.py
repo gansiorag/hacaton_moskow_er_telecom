@@ -211,14 +211,17 @@ def setting_signal_points():
 
 @app.route("/buisness_state_at_the_moment")
 def buisness_state_at_the_moment():
-    title = "buisness_state_at_the_moment"
-    return render_template('/buisness_state_at_the_moment.html', title=title)
+    title = "Состояние бизнеса на текущий момент"
+    data_user = [{'date': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'data': [5, 2, 3, 4, 3, 6, 7, 8, 9, 10], 'data_max_power': [1, 2, 2, 4, 5, 6, 5, 30, 9, 10], 'data_qv75': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}]
+    return render_template('/buisness_state_at_the_moment.html', title=title, data_user=data_user)
 
 
 @app.route("/buisness_state_and_rivalry")
 def buisness_state_and_rivalry():
-    title = "buisness_state_and_rivalry"
-    return render_template('/buisness_state_and_rivalry.html', title=title)
+    title = "Состояние бизнеса и конкуренты"
+    data_user = [{'date': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'data': [5, 2, 3, 4, 3, 6, 7, 8, 9, 10],
+                  'data_max_power': [1, 2, 2, 4, 5, 6, 5, 30, 9, 10], 'data_qv75': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}]
+    return render_template('/buisness_state_and_rivalry.html', title=title, data_user=data_user)
 
 
 @app.route("/choose_model")
