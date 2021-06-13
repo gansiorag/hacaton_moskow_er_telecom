@@ -7,7 +7,7 @@ from flask import render_template
 from flask import request
 from app import app
 from app.servis_modules import get_array_borders_squere, get_end_coord_rectangle
-from app.servis_modules import One_pix
+from app.class_Onix import One_pix
 from app.servis_modules import Work_with_One_pix
 from app import session
 
@@ -63,7 +63,7 @@ def valuation_by_address():
     low_point = [end_width, end_long]
     leng_side = 1250
     low_point = get_end_coord_rectangle(hi_point, low_point, leng_side)
-    zoom = 11  # start zoom
+    zoom = 10  # start zoom
 
     # this coordinates center rectangle
     pcc = (start_long + low_point[1]) / 2
@@ -105,7 +105,7 @@ def valuation_by_coords():
     low_point = [end_width, end_long]
     leng_side = 1250
     low_point = get_end_coord_rectangle(hi_point, low_point, leng_side)
-    zoom = 11  # start zoom
+    zoom = 10 # start zoom
 
     # this coordinates center rectangle
     pcc = (start_long + low_point[1]) / 2
@@ -160,7 +160,7 @@ def search_by_heat_map():
     low_point = [end_width, end_long]
     leng_side = 1250
     low_point = get_end_coord_rectangle(hi_point, low_point, leng_side)
-    zoom = 11  # start zoom
+    zoom = 10  # start zoom
 
     # this coordinates center rectangle
     pcc = (start_long + low_point[1]) / 2
@@ -211,14 +211,17 @@ def setting_signal_points():
 
 @app.route("/buisness_state_at_the_moment")
 def buisness_state_at_the_moment():
-    title = "buisness_state_at_the_moment"
-    return render_template('/buisness_state_at_the_moment.html', title=title)
+    title = "Состояние бизнеса на текущий момент"
+    data_user = [{'date': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'data': [5, 2, 3, 4, 3, 6, 7, 8, 9, 10], 'data_max_power': [1, 2, 2, 4, 5, 6, 5, 30, 9, 10], 'data_qv75': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}]
+    return render_template('/buisness_state_at_the_moment.html', title=title, data_user=data_user)
 
 
 @app.route("/buisness_state_and_rivalry")
 def buisness_state_and_rivalry():
-    title = "buisness_state_and_rivalry"
-    return render_template('/buisness_state_and_rivalry.html', title=title)
+    title = "Состояние бизнеса и конкуренты"
+    data_user = [{'date': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'data': [5, 2, 3, 4, 3, 6, 7, 8, 9, 10],
+                  'data_max_power': [1, 2, 2, 4, 5, 6, 5, 30, 9, 10], 'data_qv75': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}]
+    return render_template('/buisness_state_and_rivalry.html', title=title, data_user=data_user)
 
 
 @app.route("/choose_model")

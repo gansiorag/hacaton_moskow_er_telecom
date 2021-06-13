@@ -9,10 +9,16 @@ from geopy import distance
 import math
 import os
 from pprint import pprint
+
 try:
     from app.work_with_data_set import Data_set
 except Exception:
     from work_with_data_set import Data_set
+
+try:
+    from app.class_Onix import One_pix
+except Exception:
+    from class_Onix import One_pix
 
 
 def get_end_coord_rectangle(hi_point = [55.7744, 37.580],  low_point = [55.7294, 37.652], leng_side = 100):
@@ -99,15 +105,33 @@ class Work_with_One_pix():
         :param sqrt: coordinate sqrt = [[start point, end point],[start point, end point]]
         :return: list with number objects on type [10,20,0,33,325,66,58]
         """
-        array_obj = []
+        array_obj = {}
         for type_obj in self.Base_array:
-            kol_obj = 0
-            #print(type_obj)
-            for obbj in self.Base_array[type_obj]:
-                    if ((sqrt[0][0] >= obbj['ltt']) and (sqrt[1][0] <= obbj['ltt'])) and\
-                       ((sqrt[0][1] <= obbj['lnt']) and (sqrt[1][1] >= obbj['lnt'])) :
-                        kol_obj += 1
-            array_obj.append(kol_obj)
+            if type_obj != 'data_wifi':
+                kol_obj = 0
+                #print(type_obj)
+                #print(self.Base_array[type_obj])
+                for obbj in self.Base_array[type_obj]:
+                        if ((sqrt[0][0] >= obbj['ltt']) and (sqrt[1][0] <= obbj['ltt'])) and\
+                           ((sqrt[0][1] <= obbj['lnt']) and (sqrt[1][1] >= obbj['lnt'])) :
+                            kol_obj += 1
+                array_obj[type_obj] = kol_obj
+            if type_obj == 'data_wifi':
+                #print(self.Base_array[type_obj][0]['nabor'])
+                data_day_20 = self.Base_array[type_obj][0]['nabor']
+                servis_data = data_day_20.loc[(data_day_20['ltt'].astype(float) <= sqrt[0][0]) &
+                                              (data_day_20['ltt'].astype(float) >= sqrt[1][0]) &
+                                              (data_day_20['lnt'].astype(float) >= sqrt[0][1]) &
+                                              (data_day_20['lnt'].astype(float) <= sqrt[1][1])]
+
+                array_obj['kol_point_wifi'] = len(servis_data['ap_mac'].unique())
+                array_obj['kol_devices'] = len(servis_data['device_id'].unique())
+                array_obj['kol_events'] = len(servis_data['ltt'])
+                if (array_obj['kol_point_wifi'] > 0 and
+                        array_obj['kol_devices'] > 0):
+                    array_obj['ind_aktiv'] = round(array_obj['kol_events'] /
+                                                    (array_obj['kol_point_wifi'] *
+                                                     array_obj['kol_devices']), 3)
         return array_obj
 
 
@@ -161,5 +185,42 @@ if __name__ == '__main__':
     pprint(array_sqrt)
     print(kol_sqrt_width, kol_sqrt_long)
     work_array =  Work_with_One_pix(main_reactange.array_objects_pix)
-    pprint(work_array.divide_data_sqrt(array_sqrt))
+    rezult = work_array.divide_data_sqrt(array_sqrt)
+    """atelier': 18,
+  'bathing_services': 0,
+  'cinemas': 1,
+  'circus': 0,
+  'closed_paid_parking': 0,
+  'comprehensive_domestic_services': 20,
+  'concert_halls': 0,
+  'data_wifi': 6,
+  'dry_cleanings_dyeing': 5,
+  'education': 9,
+  'food': 506,
+  'furniture_services': 1,
+  'hairdressers': 120,
+  'home_electronics_services': 14,
+  'intercepting_parking': 0,
+  'jewelry_services': 5,
+  'laundries': 0,
+  'metal_services': 6,
+  'metro_exits': 9,
+  'museums': 6,
+  'other_domestic_services': 2,
+  'paid_parking': 377,
+  'parks': 0,
+  'pawnshops': 3,
+  'photo_studios': 22,
+  'rental_services': 1,
+  'ritual_services': 0,
+  'saunas': 3,
+  'self_service_dry_cleaners': 2,
+  'self_service_laundries': 1,
+  'shoe_services': 6,
+  'theaters': 6,
+  'watch_services': 6"""
+    for dd in rezult:
+        pprint(dd)
+        #print(dd['comprehensive_domestic_services'])
+    #pprint(work_array.divide_data_sqrt(array_sqrt))
 

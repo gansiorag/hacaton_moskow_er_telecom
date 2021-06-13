@@ -28,6 +28,18 @@
                                 <label for="education">Образовательное учреждение</label><br>
                                 <input type="checkbox" id="parks"/>
                                 <label for="parks">Парки</label><br>
+
+                                <input type="checkbox" id="buildings"/>
+                                <label for="buildings">Плотность застройки</label><br>
+
+                                <input type="checkbox" id="popular_place"/>
+                                <label for="popular_place">Популярность места</label><br>
+
+                                <input type="checkbox" id="activity_peaple"/>
+                                <label for="activity_peaple">Пешеходня активность</label><br>
+
+                                <input type="checkbox" id="wifi"/>
+                                <label for="wifi">Плотность точек Wi-fi</label><br>
                             </form>
                         </div>
                   </td>
@@ -79,7 +91,7 @@
                                                         start_long + 0.0016*ll*koef_lend],
                                                         [start_width - 0.0009 * (ww + 1) * koef_lend,
                                                         start_long + 0.0016 * (ll + 1) * koef_lend]];
-                                            DG.rectangle(bounds2, {color: "#ff7800", weight: 0.2}).addTo(map);
+                                            DG.rectangle(bounds2, {color: "#000000", weight: 0.2}).addTo(map);
                                             map.fitBounds(bounds2);
                                         }
                                     }
