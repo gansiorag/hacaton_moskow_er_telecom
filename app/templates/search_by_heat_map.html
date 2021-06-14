@@ -33,6 +33,16 @@
                                 let kol_sqrt_width = {{kol_sqrt_width}};
                                 let kol_sqrt_long = {{kol_sqrt_long}};
                                 let koef_lend = {{koef_lend}};
+                                let array_text =[];
+                                let servis_array =[];
+                                {% for elem in see_obj %}
+                                    servis_array =[];
+                                    {% for dd in elem %}
+                                        servis_array.push('{{dd}}' + ' - ' + {{elem[dd]}} + ' , ');
+                                    {% endfor %}
+                                    array_text.push(servis_array);
+                                {% endfor %}
+                                console.log(array_text)
                                 DG.then(function() {
                                    var map;
                                    var myIcon_red = DG.icon({
@@ -66,14 +76,13 @@
 
                                     DG.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
                                     map.fitBounds(bounds);
-
+                                   var i = 0;
                                    for (ww=0; ww<kol_sqrt_width; ww++) {
                                         for (ll=0; ll<kol_sqrt_long; ll++){
                                         pmc = (2*start_width - 2*0.0009*ww*koef_lend - 0.0009 * koef_lend)/2;
                                         lmc = (start_long + 0.0016*koef_lend/2+0.0016*ll*koef_lend);
-                                        //lmc =pcc
-                                        text_lab ='theaters - ' +' {{see_obj[1]['theaters']}}';
-                                        DG.marker([pmc,lmc]).addTo(map).bindPopup(text_lab);
+                                        i = ww*kol_sqrt_long + ll
+                                        DG.marker([pmc,lmc]).addTo(map).bindPopup(array_text);
                                            }
                                           }
 
