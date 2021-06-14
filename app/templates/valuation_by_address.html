@@ -1,60 +1,11 @@
 {% extends "bases_moduls/base.html" %}
 
 {% block work_area%}
-<style type="text/css">
-    form {
-      margin: 50px auto;
-      padding: 1em;
-      border: 1px solid #CCC;
-      border-radius: 1em;
-    }
-    .checkboxes {
-        display: flex;
-        margin-right: 50px;
-    }
-    .checkboxes input {
-        width: 10px;
-        margin-right: 20px;
-    }
-    .checkboxes label {
-        width: 100px;
-    }
-    .checkboxes .row1 div{
-        display: flex;
-        flex-direction: row;
-    }
-    .checkboxes .row2 div{
-        display: flex;
-        flex-direction: row;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
 
-    form li + li {
-      margin-top: 1em;
-    }
-
-    label {
-      display: inline-block;
-      width: 200px;
-    }
-
-    input {
-      font: 1em sans-serif;
-      width: 300px;
-      box-sizing: border-box;
-      border: 1px solid #999;
-    }
-
-    input:focus {
-      border-color: #000;
-    }
-</style>
 <!-- Заголовок ---->
 {% include 'com_head.html' %}
+        <div>
+	    <h2 class="text-center">{{title}}</h2> <br></div>
         <form name="form_auth" method="post">
             <label for="address">Введите адрес</label><br>
             <input type="text" id="address" name="ADDRESS">
@@ -67,47 +18,33 @@
             <tr>
                 <td style="width: 30%;">
                         <div style="padding-left:10%;">
-                            <form action="" class="checkboxes">
-                                <div class="row1">
-                                    <div>
-                                        <input type="checkbox" id="theatres"/>
-                                        <label for="theatres">Театры</label><br>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" id="museums"/>
-                                        <label for="museums">Музеи</label><br>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" id="food"/>
-                                        <label for="food">Рестораны</label><br>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" id="cinemas"/>
-                                        <label for="cinemas">Кинотеатры</label><br>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" id="circus"/>
-                                        <label for="circus">Цирки</label><br>
-                                    </div>
-                                </div>
-                                <div class="row2">
-                                    <div>
-                                        <input type="checkbox" id="concert_halls"/>
-                                        <label for="concert_halls">Концертные залы</label><br>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" id="monuments"/>
-                                        <label for="monuments">Памятники</label><br>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" id="education"/>
-                                        <label for="education">Образовательное учреждение</label><br>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" id="parks"/>
-                                        <label for="parks">Парки</label><br>
-                                    </div>
-                                </div>
+                            <form action="">
+                                <input type="checkbox" id="theatres"/>
+                                <label for="theatres">Театры</label><br>
+                                <input type="checkbox" id="museums"/>
+                                <label for="museums">Музеи</label><br>
+                                <input type="checkbox" id="food"/>
+                                <label for="food">Рестораны</label><br>
+                                <input type="checkbox" id="cinemas"/>
+                                <label for="cinemas">Кинотеатры</label><br>
+                                <input type="checkbox" id="circus"/>
+                                <label for="circus">Цирки</label><br>
+                                <input type="checkbox" id="concert_halls"/>
+                                <label for="concert_halls">Концертные залы</label><br>
+                                <input type="checkbox" id="monuments"/>
+                                <label for="monuments">Памятники</label><br>
+                                <input type="checkbox" id="education"/>
+                                <label for="education">Образовательное учреждение</label><br>
+                                <input type="checkbox" id="parks"/>
+                                <label for="parks">Парки</label><br>
+                                <input type="checkbox" id="buildings"/>
+                                <label for="buildings">Плотность застройки</label><br>
+                                <input type="checkbox" id="popular_place"/>
+                                <label for="popular_place">Популярность места</label><br>
+                                <input type="checkbox" id="activity_peaple"/>
+                                <label for="activity_peaple">Пешеходня активность</label><br>
+                                <input type="checkbox" id="wifi"/>
+                                <label for="wifi">Плотность точек Wi-fi</label><br>
                             </form>
                         </div>
                   </td>

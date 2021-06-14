@@ -2,21 +2,20 @@
 
 {% block work_area%}
 <style type="text/css">
-    form {
-      margin: 50px auto;
-      width: 400px;
+    .form {
+        margin: 0 auto;
       padding: 1em;
-      border: 1px solid #CCC;
-      border-radius: 1em;
+      border:1px solid #000000;
+        width: 550px;
     }
 
-    ul {
+    .form ul {
+        margin: 0 20px;
       list-style: none;
-      padding: 0;
-      margin: 0;
+      padding: 20px 0 40px 0;
     }
 
-    form li + li {
+    .form li + li {
       margin-top: 1em;
     }
 
@@ -27,9 +26,15 @@
 
     input {
       font: 1em sans-serif;
-      width: 300px;
+      width: 200px;
       box-sizing: border-box;
       border: 1px solid #999;
+        padding: 5px;
+        float: right;
+    }
+
+    .solid_button {
+        width: 200px;
     }
 
     input:focus {
@@ -38,7 +43,10 @@
 </style>
 
 <div>
-    <form name="form_auth" method="post">
+    <div>
+        <h2 class="text-center">{{title}}</h2> <br>
+    </div>
+    <form class="form" name="form_auth" method="post">
         <ul>
             <li>
                 <label for="employees">Количество сотрудников</label>
@@ -56,10 +64,8 @@
                 <label for="fair_business_data">Данные с сайта за честный бизнес</label>
                 <input id="fair_business_data" name="FAIR_BUSINESS_DATA" type="text">
             </li>
+            <input type="submit" name="ZarLogin" class="solid_button login_button" value="Записать" formaction="/fin_data" />
         </ul>
-        <br>
-        <input type="submit" name="ZarLogin" class="solid_button login_button" value="Записать" formaction="/fin_data" />
-        <br>
     </form>
 </div>
 
