@@ -80,7 +80,8 @@
                                         pmc = (2*start_width - 2*0.0009*ww*koef_lend - 0.0009 * koef_lend)/2;
                                         lmc = (start_long + 0.0016*koef_lend/2+0.0016*ll*koef_lend);
                                         //lmc =pcc
-                                        DG.marker([pmc,lmc]).addTo(map).bindPopup('Вы кликнули по мне!');
+                                        text_lab ='theaters - ' +' {{see_obj[1]['theaters']}}';
+                                        DG.marker([pmc,lmc]).addTo(map).bindPopup(text_lab);
                                            }
                                           }
 
