@@ -37,31 +37,33 @@
     }
 </style>
 
-<div>
-    <form action="">
+  <div>
+    <form name="form_auth" method="post">
         <ul>
-{#            <li>#}
-{#                <label for="address">Адрес реализации</label>#}
-{#                <input id="address" type="text">#}
-{#            </li>#}
-{#            <li>#}
-{#                <label for="kitchen">Кухня (японская, европейская и т.д.)</label>#}
-{#                <input id="kitchen" type="text">#}
-{#            </li>#}
-{#            <li>#}
-{#                <label for="rooms">Количество залов</label>#}
-{#                <input id="rooms" type="text">#}
-{#            </li>#}
-{#            <li>#}
-{#                <label for="seats">Количество посадочных мест</label>#}
-{#                <input id="seats" type="text">#}
-{#            </li>#}
-{#            <li>#}
-{#                <label for="type">Границы среднего чека</label>#}
-{#                <input id="type" type="text">#}
-{#            </li>#}
-{#            <li>#}
-{#        </ul>#}
+            <li>
+                <label for="employees">Кухня (японская, европейская и т.д.)</label>
+                <input id="employees" name="EMPLOYEES" type="text">
+            </li>
+            <li>
+                <label for="affiliate">Количество залов</label>
+                <input id="affiliate" name="AFFILIATE" type="text">
+            </li>
+            <li>
+                <label for="records_from_tax_office">Количество посадочных мест</label>
+                <input id="records_from_tax_office" name="RECORDS_FROM_TAX_OFFICE" type="text">
+            </li>
+            <li>
+                <label for="fair_business_data">Границы среднего чека</label>
+                <input id="fair_business_data" name="FAIR_BUSINESS_DATA" type="text">
+            </li>
+            <li>
+                <label for="add_servis">Дополнительные услуги</label>
+                <input id="add_servis" name="add_servis" type="text">
+            </li>
+        </ul>
+        <br>
+        <input type="submit" name="ZarLogin" class="solid_button login_button" value="Записать" formaction="/fin_data" />
+        <br>
     </form>
 </div>
 
