@@ -475,7 +475,7 @@ class Data_set():
                                     'kol_point_wifi':0.0,
                                     'kol_devices':0.0,
                                     'kol_events':0.0,
-                                    'ind_aktiv':0.0}
+                                    'activity_people':0.0}
         servis_list_event = []
         servis_list_camers = []
         servis_list_device = []
@@ -491,13 +491,13 @@ class Data_set():
         one_object['kol_events'] =len(servis_data['ltt'])
         if (one_object['kol_point_wifi']>0 and
             one_object['kol_devices']>0) :
-                one_object['ind_aktiv'] = round(one_object['kol_events']/
+                one_object['activity_people'] = round(one_object['kol_events']/
                                                                 (one_object['kol_point_wifi']*
                                                                  one_object['kol_devices']), 3)
         print(one_object['kol_point_wifi'])
         print(one_object['kol_devices'])
         print(one_object['kol_events'])
-        print(one_object['ind_aktiv'])
+        print(one_object['activity_people'])
         return one_object
 
 

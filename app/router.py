@@ -187,6 +187,7 @@ def search_by_heat_map():
                                                                                     leng_side=leng_side)
     print('kol_sqrt_width, kol_sqrt_long = ', kol_sqrt_width, kol_sqrt_long)
     work_array = Work_with_One_pix(main_reactange.array_objects_pix)
+    print(list_obj)
     rezult = work_array.divide_data_sqrt(array_sqrt, list_obj)
     print(rezult)
     return render_template('search_by_heat_map.html',
