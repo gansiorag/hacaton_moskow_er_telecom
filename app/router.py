@@ -152,8 +152,19 @@ def search_by_heat_map():
     :return:
     '''
 
+    list_obj = []
     if request.method == 'POST':
-        print(request.form.getlist('type_obj'))
+        list_obj = request.form.getlist('type_obj')
+        print(list_obj)
+
+        if len(list_obj) > 0:
+            for objj in session['type_obj']:
+                if objj in list_obj:
+                    session['type_obj'][objj][1] = 'checked'
+                else:
+                    session['type_obj'][objj][1] = ''
+        else:
+            for objj in session['type_obj']: session['type_obj'][objj][1] = ''
 
     start_width = 55.754311
     start_long = 37.522732
@@ -170,15 +181,15 @@ def search_by_heat_map():
     lcc = (start_width + low_point[0]) / 2
 
     param = {'coord_pix': [[pcc, lcc], hi_point, low_point]}
-    name_obj = ['theaters', 'food', 'intercepting_parking', 'paid_parking', 'closed_paid_parking',
-                'cinemas', 'circus', 'concert_halls', 'museums', 'education']
     main_reactange = One_pix(param)
     kol_sqrt_width, kol_sqrt_long, koef_lend, array_sqrt = get_array_borders_squere(hi_point=[start_width, start_long],
                                                                                     low_point=[end_width, end_long],
                                                                                     leng_side=leng_side)
     print('kol_sqrt_width, kol_sqrt_long = ', kol_sqrt_width, kol_sqrt_long)
     work_array = Work_with_One_pix(main_reactange.array_objects_pix)
-
+    print(list_obj)
+    rezult = work_array.divide_data_sqrt(array_sqrt, list_obj)
+    print(rezult)
     return render_template('search_by_heat_map.html',
                            lcc=lcc,
                            pcc=pcc,
@@ -190,7 +201,9 @@ def search_by_heat_map():
                            leng_side=leng_side,
                            kol_sqrt_width=kol_sqrt_width,
                            kol_sqrt_long=kol_sqrt_long,
-                           koef_lend=koef_lend
+                           koef_lend=koef_lend,
+                           names_obj = session['type_obj'],
+                           see_obj = rezult
                            )
 
 

@@ -10,36 +10,10 @@
                 <td style="width: 30%;">
                         <div style="padding-left:10%;">
                             <form method="post">
-                                <input type="checkbox" name="type_obj" value="theatres" id="theatres"/>
-                                <label for="theatres">Театры</label><br>
-                                <input type="checkbox" name="type_obj" value="museums" id="museums"/>
-                                <label for="museums">Музеи</label><br>
-                                <input type="checkbox"  name="type_obj" value="food" id="food"/>
-                                <label for="food">Рестораны</label><br>
-                                <input type="checkbox"  name="type_obj" value="theatres" id="cinemas"/>
-                                <label for="cinemas">Кинотеатры</label><br>
-                                <input type="checkbox" name="type_obj" value="circus" id="circus"/>
-                                <label for="circus">Цирки</label><br>
-                                <input type="checkbox" name="type_obj" value="concert_halls" id="concert_halls"/>
-                                <label for="concert_halls">Концертные залы</label><br>
-                                <input type="checkbox"  name="type_obj" value="monuments" id="monuments"/>
-                                <label for="monuments">Памятники</label><br>
-                                <input type="checkbox"  name="type_obj" value="education" id="education"/>
-                                <label for="education">Образовательное учреждение</label><br>
-                                <input type="checkbox"  name="type_obj" value="parks" id="parks"/>
-                                <label for="parks">Парки</label><br>
-
-                                <input type="checkbox"  name="type_obj" value="builts" id="builts"/>
-                                <label for="builts">Плотность застройки</label><br>
-
-                                <input type="checkbox"  name="type_obj" value="popular_place" id="popular_place"/>
-                                <label for="popular_place">Популярность места</label><br>
-
-                                <input type="checkbox"  name="type_obj" value="activity_peaple" id="activity_peaple"/>
-                                <label for="activity_peaple">Пешеходня активность</label><br>
-
-                                <input type="checkbox"  name="type_obj" value="data_wifi" id="data_wifi"/>
-                                <label for="data_wifi">Плотность точек Wi-fi</label><br><br>
+                                {% for names in names_obj %}
+                                    <input type="checkbox" name="type_obj" value="{{names}}" id="{{names}}" {{names_obj[names][1]}}/>
+                                    <label for="{{names}}">{{names_obj[names][0]}} </label><br>
+                                {% endfor %}
                                 <input type="submit">
                             </form>
                         </div>
@@ -59,21 +33,23 @@
                                 let kol_sqrt_width = {{kol_sqrt_width}};
                                 let kol_sqrt_long = {{kol_sqrt_long}};
                                 let koef_lend = {{koef_lend}};
-                                //let width = abs(start_width - end_width);
+                                let array_text =[];
+                                let servis_array =[];
+                                {% for elem in see_obj %}
+                                    servis_array =[];
+                                    {% for dd in elem %}
+                                        servis_array.push('{{dd}}' + ' - ' + {{elem[dd]}} + ' , ');
+                                    {% endfor %}
+                                    array_text.push(servis_array);
+                                {% endfor %}
+                                console.log(array_text)
                                 DG.then(function() {
                                    var map;
                                    var myIcon_red = DG.icon({
-                                                    iconUrl: "../static/red_icon.png",
+                                                    iconUrl: "./static/red_icon.png",
                                                     iconSize: [30, 40],
                                                     iconAnchor: [0, 30],
                                                 });
-
-                                    //var myIcon_blue = DG.icon({
-                                    //                iconUrl: "../static/blue_icon.png",
-                                    //                iconSize: [40, 40],
-                                    //                iconAnchor: [-20, 30],
-                                    //            });
-
 
                                     map =DG.map('map', {
                                         center: [lcc,pcc],
@@ -82,7 +58,7 @@
 
                                     var bounds = [[start_width,start_long], [end_width,end_long]];
                                     var ww, ll;
-
+                                   var i;
 
                                     var bounds2 = [];
 
@@ -92,19 +68,24 @@
                                                         start_long + 0.0016*ll*koef_lend],
                                                         [start_width - 0.0009 * (ww + 1) * koef_lend,
                                                         start_long + 0.0016 * (ll + 1) * koef_lend]];
+
                                             DG.rectangle(bounds2, {color: "#000000", weight: 0.2}).addTo(map);
                                             map.fitBounds(bounds2);
                                         }
                                     }
+
                                     DG.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
                                     map.fitBounds(bounds);
 
-                                    //myDivIcon = DG.divIcon({
-                                    //    iconSize: [70, 20],
-                                   //     html: '<b style="color:blue;">Объект с 15 подключениями</b>'
-                                    //});
+                                   for (ww=0; ww<kol_sqrt_width; ww++) {
+                                        for (ll=0; ll<kol_sqrt_long; ll++){
+                                        pmc = (2*start_width - 2*0.0009*ww*koef_lend - 0.0009 * koef_lend)/2;
+                                        lmc = (start_long + 0.0016*koef_lend/2+0.0016*ll*koef_lend);
+                                        i = ww*kol_sqrt_long + ll;
+                                        DG.marker([pmc,lmc]).addTo(map).bindPopup(array_text[i][0]+array_text[i][1]);
+                                           }
+                                          }
 
-                                    //DG.marker([lcc,pcc],{icon: myIcon_red}).addTo(map).bindPopup('Вы кликнули по мне!');
                                 });
                             </script>
                         </div>
