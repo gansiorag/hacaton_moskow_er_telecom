@@ -89,17 +89,17 @@ class Work_with_One_pix():
         #print(self.array_sqrt)
         #self.array_data_sqrt = self.divide_data_sqrt()
 
-    def divide_data_sqrt(self, array_sqrt):
+    def divide_data_sqrt(self, array_sqrt, list_obj):
         """
         create array sqrts with objects
         :return:
         """
         arr = []
         for sqrt in array_sqrt:
-            arr.append(self.get_data_sqrt(sqrt))
+            arr.append(self.get_data_sqrt(sqrt, list_obj))
         return arr
 
-    def get_data_sqrt(self, sqrt):
+    def get_data_sqrt(self, sqrt, list_obj):
         """
         get all type objects in sqrt
         :param sqrt: coordinate sqrt = [[start point, end point],[start point, end point]]
@@ -107,31 +107,32 @@ class Work_with_One_pix():
         """
         array_obj = {}
         for type_obj in self.Base_array:
-            if type_obj != 'data_wifi':
-                kol_obj = 0
-                #print(type_obj)
-                #print(self.Base_array[type_obj])
-                for obbj in self.Base_array[type_obj]:
-                        if ((sqrt[0][0] >= obbj['ltt']) and (sqrt[1][0] <= obbj['ltt'])) and\
-                           ((sqrt[0][1] <= obbj['lnt']) and (sqrt[1][1] >= obbj['lnt'])) :
-                            kol_obj += 1
-                array_obj[type_obj] = kol_obj
-            if type_obj == 'data_wifi':
-                #print(self.Base_array[type_obj][0]['nabor'])
-                data_day_20 = self.Base_array[type_obj][0]['nabor']
-                servis_data = data_day_20.loc[(data_day_20['ltt'].astype(float) <= sqrt[0][0]) &
-                                              (data_day_20['ltt'].astype(float) >= sqrt[1][0]) &
-                                              (data_day_20['lnt'].astype(float) >= sqrt[0][1]) &
-                                              (data_day_20['lnt'].astype(float) <= sqrt[1][1])]
+            if type_obj in list_obj:
+                if type_obj != 'data_wifi':
+                    kol_obj = 0
+                    #print(type_obj)
+                    #print(self.Base_array[type_obj])
+                    for obbj in self.Base_array[type_obj]:
+                            if ((sqrt[0][0] >= obbj['ltt']) and (sqrt[1][0] <= obbj['ltt'])) and\
+                               ((sqrt[0][1] <= obbj['lnt']) and (sqrt[1][1] >= obbj['lnt'])) :
+                                kol_obj += 1
+                    array_obj[type_obj] = kol_obj
+                if type_obj == 'data_wifi':
+                    #print(self.Base_array[type_obj][0]['nabor'])
+                    data_day_20 = self.Base_array[type_obj][0]['nabor']
+                    servis_data = data_day_20.loc[(data_day_20['ltt'].astype(float) <= sqrt[0][0]) &
+                                                  (data_day_20['ltt'].astype(float) >= sqrt[1][0]) &
+                                                  (data_day_20['lnt'].astype(float) >= sqrt[0][1]) &
+                                                  (data_day_20['lnt'].astype(float) <= sqrt[1][1])]
 
-                array_obj['kol_point_wifi'] = len(servis_data['ap_mac'].unique())
-                array_obj['kol_devices'] = len(servis_data['device_id'].unique())
-                array_obj['kol_events'] = len(servis_data['ltt'])
-                if (array_obj['kol_point_wifi'] > 0 and
-                        array_obj['kol_devices'] > 0):
-                    array_obj['ind_aktiv'] = round(array_obj['kol_events'] /
-                                                    (array_obj['kol_point_wifi'] *
-                                                     array_obj['kol_devices']), 3)
+                    array_obj['kol_point_wifi'] = len(servis_data['ap_mac'].unique())
+                    array_obj['kol_devices'] = len(servis_data['device_id'].unique())
+                    array_obj['kol_events'] = len(servis_data['ltt'])
+                    if (array_obj['kol_point_wifi'] > 0 and
+                            array_obj['kol_devices'] > 0):
+                        array_obj['ind_aktiv'] = round(array_obj['kol_events'] /
+                                                        (array_obj['kol_point_wifi'] *
+                                                         array_obj['kol_devices']), 3)
         return array_obj
 
 
