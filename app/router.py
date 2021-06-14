@@ -286,7 +286,7 @@ def buisness_state_and_rivalry():
 
 @app.route("/choose_model")
 def choose_model():
-    title = "choose_model"
+    title = "Выбор параметров и моделей обработки и анализа данных."
     return render_template('/choose_model.html', title=title)
 
 

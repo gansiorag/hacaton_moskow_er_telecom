@@ -1,1 +1,74 @@
 {% extends "bases_moduls/base.html" %}
+
+{% block head %}
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       <link href="/static/css/first_style.css" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block work_area %}
+	<div>
+		<br>
+	<h2 class="text-center">{{title}}</h2> <br></div>
+	<br><br>
+<div class="row equal-cols" style="text-align: center; ">
+	         <div class="col-md-6" >
+	            <div style="border:1px solid #000000; width:99%;">
+                    <br>
+	            	<b>	Статистический анализ. </b><br><br>
+                                <form method="post">
+                                    <input type="checkbox" name="type_obj" value="11" id="d11" />
+                                    <label for="d11">Анлиз средних  </label><br>
+									<input type="checkbox" name="type_obj" value="12" id="d12" />
+                                    <label for="d12">Анлиз средних  </label><br>
+									<input type="checkbox" name="type_obj" value="14" id="d14" />
+                                    <label for="d14">Анлиз средних  </label><br>
+
+                                <input type="submit"><br>
+									<p></p>
+                            </form>
+	            </div>
+	        </div>
+
+	        <div class="col-md-6" >
+	            <div style="border:1px solid #000000; width:99%;">
+                    <br>
+	            	<b>	Методы машинного обучения </b><br><br>
+                                          <form method="post">
+                                    <input type="checkbox" name="type_obj" value="11" id="11" />
+                                    <label for="11">Анлиз средних  </label><br>
+									<input type="checkbox" name="type_obj" value="12" id="12" />
+                                    <label for="12">Анлиз средних  </label><br>
+									<input type="checkbox" name="type_obj" value="14" id="14" />
+                                    <label for="14">Анлиз средних  </label><br>
+
+                                <input type="submit"><br>
+                            </form>
+	            </div>
+	        </div>
+	     </div>
+	<br>
+	    <div class="row equal-cols" style="text-align: center; ">
+	         <div class="col-md-6" >
+	            <div style="border:1px solid #000000; width:99%;">
+                    <br>
+	            	<b>	Анализ временных рядов и потоков </b><br><br>
+                        Параметр №1<br><br>
+                        Параметр №2<br><br>
+                        Параметр №3<br><br>
+                        Параметр №4<br><br>
+	            </div>
+	        </div>
+
+	        <div class="col-md-6" >
+	            <div style="border:1px solid #000000; width:99%;">
+                    <br>
+	            	<b>	Распознавание изображений </b><br><br>
+                        Параметр №1<br><br>
+                        Параметр №2<br><br>
+                        Параметр №3<br><br>
+                        Параметр №4<br><br>
+	            </div>
+	        </div>
+	     </div>
+
+{% endblock %}
