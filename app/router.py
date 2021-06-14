@@ -11,6 +11,7 @@ from app.class_Onix import One_pix
 from app.servis_modules import Work_with_One_pix
 from app import session
 import random
+import copy
 
 @app.route("/")
 def index():
@@ -189,7 +190,12 @@ def search_by_heat_map():
     work_array = Work_with_One_pix(main_reactange.array_objects_pix)
     print(list_obj)
     rezult = work_array.divide_data_sqrt(array_sqrt, list_obj)
-    print(rezult)
+    # new_rez = []
+    # if len(list_obj) < len(rezult[0]):
+    #    for dd in rezult:
+    #
+    # else: new_rez = copy.deepcopy(rezult)
+    # print(new_rez)
     return render_template('search_by_heat_map.html',
                            lcc=lcc,
                            pcc=pcc,

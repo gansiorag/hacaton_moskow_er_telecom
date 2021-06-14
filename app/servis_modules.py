@@ -108,8 +108,6 @@ class Work_with_One_pix():
         array_obj = {}
         for type_obj in self.Base_array:
             if (type_obj in list_obj) and (type_obj !='data_wifi'):
-
-                if type_obj not in ['data_wifi', 'activity_people']:
                     kol_obj = 0
                     #print(type_obj)
                     #print(self.Base_array[type_obj])
@@ -118,22 +116,26 @@ class Work_with_One_pix():
                                ((sqrt[0][1] <= obbj['lnt']) and (sqrt[1][1] >= obbj['lnt'])) :
                                 kol_obj += 1
                     array_obj[type_obj] = kol_obj
-                if type_obj in ['data_wifi', 'activity_people']:
-                    #print(self.Base_array[type_obj][0]['nabor'])
-                    data_day_20 = self.Base_array[type_obj][0]['nabor']
-                    servis_data = data_day_20.loc[(data_day_20['ltt'].astype(float) <= sqrt[0][0]) &
-                                                  (data_day_20['ltt'].astype(float) >= sqrt[1][0]) &
-                                                  (data_day_20['lnt'].astype(float) >= sqrt[0][1]) &
-                                                  (data_day_20['lnt'].astype(float) <= sqrt[1][1])]
 
-                    array_obj['kol_point_wifi'] = len(servis_data['ap_mac'].unique())
-                    array_obj['kol_devices'] = len(servis_data['device_id'].unique())
-                    array_obj['kol_events'] = len(servis_data['ltt'])
-                    if (array_obj['kol_point_wifi'] > 0 and
-                            array_obj['kol_devices'] > 0):
-                        array_obj['activity_people'] = round(array_obj['kol_events'] /
-                                                        (array_obj['kol_point_wifi'] *
-                                                         array_obj['kol_devices']), 3)
+            else:
+                for name_nabor in list_obj:
+                    if name_nabor  in ['point_wifi', 'activity_people', 'popular_place']:
+                        #print(self.Base_array[type_obj][0]['nabor'])
+                        data_day_20 = self.Base_array['data_wifi'][0]['nabor']
+                        servis_data = data_day_20.loc[(data_day_20['ltt'].astype(float) <= sqrt[0][0]) &
+                                                      (data_day_20['ltt'].astype(float) >= sqrt[1][0]) &
+                                                      (data_day_20['lnt'].astype(float) >= sqrt[0][1]) &
+                                                      (data_day_20['lnt'].astype(float) <= sqrt[1][1])]
+
+                        array_obj['point_wifi'] = len(servis_data['ap_mac'].unique())
+                        array_obj['popular_place'] = len(servis_data['device_id'].unique())
+                        kol_events = len(servis_data['ltt'])
+                        if (array_obj['point_wifi'] > 0 and
+                                array_obj['popular_place'] > 0):
+                            array_obj['activity_people'] = round(kol_events /
+                                                            (array_obj['point_wifi'] *
+                                                             array_obj['popular_place']), 3)
+                        break
         return array_obj
 
 
