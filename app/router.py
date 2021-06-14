@@ -12,6 +12,7 @@ from app.servis_modules import Work_with_One_pix
 from app import session
 import random
 import copy
+from numpy import mean
 
 @app.route("/")
 def index():
@@ -268,20 +269,39 @@ def setting_signal_points():
 @app.route("/buisness_state_at_the_moment")
 def buisness_state_at_the_moment():
     title = "Состояние бизнеса на текущий момент"
-    data_user = [{'date': list(range(1, 31)), 'data': [random.randint(1, 30) for i in range(0, 31)],
-                  'data_max_power': [random.randint(1, 30) for i in range(0, 31)],
-                  'data_qv75': [random.randint(1, 30) for i in range(0, 31)]}]
-    print(data_user)
-    return render_template('/buisness_state_at_the_moment.html', title=title, data_user=data_user)
+    data_user_first = [{'date': list(range(1, 31)), 'data': [random.randint(1, 12041) for i in range(0, 31)],
+                        'data_max_power': [random.randint(1, 9582) for i in range(0, 31)],
+                        'data_qv75': [random.randint(1, 8300) for i in range(0, 31)]}]
+    data_user_second = [{'date': list(range(1, 31)), 'data': [random.randint(1, 3452) for i in range(0, 31)],
+                         'data_max_power': [random.randint(1, 4631) for i in range(0, 31)],
+                         'data_qv75': [random.randint(1, 12041) for i in range(0, 31)]}]
+    first_mass = ["Дата", "Около вашей точки", "Популярность вашей точки", "Активность возле вашей точки"]
+    second_mass = ["Дата", "15 мин.", "30 мин.", "1 час"]
+    graf_title_first = 'График пешеходного трафика по часам'
+    graf_title_second = 'Кол-во потенциальных клиентов возле точки'
+    return render_template('/buisness_state_at_the_moment.html', title=title, data_user_first=data_user_first,
+                           data_user_second=data_user_second, first_mass=first_mass, second_mass=second_mass,
+                           graf_title_first=graf_title_first, graf_title_second=graf_title_second,
+                           avg_params_first=[int(mean(data_user_first[0]['data'])), int(mean(data_user_first[0]['data_max_power'])), int(mean(data_user_first[0]['data_qv75']))], avg_params_second=[int(mean(data_user_second[0]['data'])), int(mean(data_user_second[0]['data_max_power'])), int(mean(data_user_second[0]['data_qv75']))])
 
 
 @app.route("/buisness_state_and_rivalry")
 def buisness_state_and_rivalry():
     title = "Состояние бизнеса и конкуренты"
-    data_user = [{'date': list(range(1, 31)), 'data': [random.randint(1, 30) for i in range(0, 31)],
-                  'data_max_power': [random.randint(1, 30) for i in range(0, 31)],
-                  'data_qv75': [random.randint(1, 30) for i in range(0, 31)]}]
-    return render_template('/buisness_state_and_rivalry.html', title=title, data_user=data_user)
+    data_user_first = [{'date': list(range(1, 31)), 'data': [random.randint(1, 12041) for i in range(0, 31)],
+                        'data_max_power': [random.randint(1, 9582) for i in range(0, 31)],
+                        'data_qv75': [random.randint(1, 8300) for i in range(0, 31)]}]
+    data_user_second = [{'date': list(range(1, 31)), 'data': [random.randint(1, 3452) for i in range(0, 31)],
+                         'data_max_power': [random.randint(1, 4631) for i in range(0, 31)],
+                         'data_qv75': [random.randint(1, 7942) for i in range(0, 31)]}]
+    first_mass = ["Дата", "Около вашей точки", "Ср. трафик около точек конкурентов", "Общий трафик по квадрату"]
+    second_mass = ["Дата", "Популярность вашей точки", "Средняя популярность точки у конкурентов", "Поплуярность квадрата"]
+    graf_title_first = 'График пешеходного трафика по часам'
+    graf_title_second = 'График изменения популярности места по часам'
+    return render_template('/buisness_state_and_rivalry.html', title=title, data_user_first=data_user_first,
+                           data_user_second=data_user_second, first_mass=first_mass, second_mass=second_mass,
+                           graf_title_first=graf_title_first, graf_title_second=graf_title_second,
+                           avg_params_first=[int(mean(data_user_first[0]['data'])), int(mean(data_user_first[0]['data_max_power'])), int(mean(data_user_first[0]['data_qv75']))], avg_params_second=[int(mean(data_user_second[0]['data'])), int(mean(data_user_second[0]['data_max_power'])), int(mean(data_user_second[0]['data_qv75']))])
 
 
 @app.route("/choose_model")

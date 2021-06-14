@@ -65,7 +65,7 @@
 
                                     var bounds = [[start_width,start_long], [end_width,end_long]];
                                     var ww, ll;
-                                   var i;
+                                    var i;
 
                                     var bounds2 = [];
 
@@ -83,13 +83,17 @@
 
                                     DG.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
                                     map.fitBounds(bounds);
-
+                                   var text_marker = ''
+                                   var k = 0
                                    for (ww=0; ww<kol_sqrt_width; ww++) {
                                         for (ll=0; ll<kol_sqrt_long; ll++){
                                         pmc = (2*start_width - 2*0.0009*ww*koef_lend - 0.0009 * koef_lend)/2;
                                         lmc = (start_long + 0.0016*koef_lend/2+0.0016*ll*koef_lend);
                                         i = ww*kol_sqrt_long + ll;
-                                        DG.marker([pmc,lmc]).addTo(map).bindPopup(array_text[i][0]+array_text[i][1]);
+                                        text_marker = ''
+                                        for (k=0; k<array_text[i].length; k++){
+                                           text_marker = text_marker + array_text[i][k];  }
+                                        DG.marker([pmc,lmc]).addTo(map).bindPopup(text_marker);
                                            }
                                           }
 

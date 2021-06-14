@@ -8,13 +8,13 @@
         function drawChart() {
 
             var data_mass =[];
-            data_mass.push(['Дата', 'Потр. по часам','Заяв. мощ.', 'Квант. 75']);
+            data_mass.push(['{{ first_mass[0] }}', '{{ first_mass[1] }}', '{{ first_mass[2] }}', '{{ first_mass[3] }}']);
 
-            {% for itok in data_user[0]['date'] %}
-                data_mass.push([{{data_user[0]['date'][loop.index]}},
-                    {{data_user[0]['data'][loop.index]}},
-                    {{data_user[0]['data_max_power'][loop.index]}},
-                    {{data_user[0]['data_qv75'][loop.index]}}
+            {% for itok in data_user_first[0]['date'] %}
+                data_mass.push([{{data_user_first[0]['date'][loop.index]}},
+                    {{data_user_first[0]['data'][loop.index]}},
+                    {{data_user_first[0]['data_max_power'][loop.index]}},
+                    {{data_user_first[0]['data_qv75'][loop.index]}}
                 ]);
 
             {% endfor %}
@@ -22,7 +22,7 @@
             var data = google.visualization.arrayToDataTable(data_mass);
 
             var options = {
-                title: 'График пешеходного трафика по часам',
+                title: '{{ graf_title_first }}',
                 curveType: 'function',
                 legend: { position: 'bottom' }
             };
@@ -47,13 +47,13 @@
       function drawChart() {
 
         var data_mass =[];
-        data_mass.push(['Дата', 'Потр. по часам','Заяв.', 'Квант. 75']);
+        data_mass.push(['{{ second_mass[0] }}', '{{ second_mass[1] }}', '{{ second_mass[2] }}', '{{ second_mass[3] }}']);
 
-        {% for itok in data_user[0]['date'] %}
-            data_mass.push([{{data_user[0]['date'][loop.index]}},
-                {{data_user[0]['data'][loop.index]}},
-                {{data_user[0]['data_max_power'][loop.index]}},
-                {{data_user[0]['data_qv75'][loop.index]}}
+        {% for itok in data_user_second[0]['date'] %}
+            data_mass.push([{{data_user_second[0]['date'][loop.index]}},
+                {{data_user_second[0]['data'][loop.index]}},
+                {{data_user_second[0]['data_max_power'][loop.index]}},
+                {{data_user_second[0]['data_qv75'][loop.index]}}
             ]);
 
         {% endfor %}
@@ -61,7 +61,7 @@
         var data = google.visualization.arrayToDataTable(data_mass);
 
         var options = {
-          title: 'График пешеходного трафика по часам',
+          title: '{{ graf_title_second }}',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
